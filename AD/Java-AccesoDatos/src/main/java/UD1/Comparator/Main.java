@@ -1,3 +1,4 @@
+package UD1.Comparator;
 import java.util.*;
 
 public class Main {

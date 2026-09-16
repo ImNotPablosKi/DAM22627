@@ -1,3 +1,4 @@
+package UD1.Comparator;
 public class Student {
 
     int id;
