@@ -13,7 +13,7 @@ class MainWindow(QMainWindow): # Crear la clase
         self.setWindowTitle("Mi aplicación")
 
         boton = QPushButton("Pulsa!")
-        boton.setCheckable(True)
+        boton.setCheckable(False)
         boton.clicked.connect(self.botonactivado)
         boton.setChecked(self.botonPulsado) # Esto determina si el estado del boton está checked o no
         
