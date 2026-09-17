@@ -19,23 +19,24 @@
         android:id="@+id/texto_pregunta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Qué edad tienes?"
+        android:text="@string/pregunta_edad"
         android:textSize="24sp"
         android:textStyle="bold"
         android:padding="24sp"
         android:textColor="@color/verde"
         />
+
     <EditText
         android:id="@+id/edit_edad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:ems="10"
-        android:hint="Introduce tu edad"
         android:gravity="center"
+        android:hint="@string/introduce_tu_edad"
         android:inputType="number"
 
-        />
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/boton_calcular"
@@ -44,7 +45,7 @@
         android:layout_marginHorizontal="24sp"
         android:layout_marginVertical="16dp"
         android:backgroundTint="@color/verde"
-        android:text="Calcular"
+        android:text="@string/boton_calcular"
         android:textSize="20sp"
         />
     <TextView
