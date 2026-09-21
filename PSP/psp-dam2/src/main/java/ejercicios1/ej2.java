@@ -9,11 +9,11 @@ public class ej2 {
         try {
 
             // Crear las rutas de archivo previamente, esto es necesario
-            File archivo = new File("C:\\Users\\dam2\\Documents\\logs.txt");
-            File archivoErrores = new File("C:\\Users\\dam2\\Documents\\logsErrores.txt");
+            File archivo = new File("src/main/java/ejercicios1/dump/logs.txt");
+            File archivoErrores = new File("src/main/java/ejercicios1/dump/logsErrores.txt");
 
             // Crear proceso y redirigir cada cosa a su lugar con el archivo correspondiente
-            Process redirigir = new ProcessBuilder("\"C:\\Users\\dam2\\Documents\\ejecutable.bat\"").
+            Process redirigir = new ProcessBuilder("src/main/java/ejercicios1/dump/ejecutable.bat").
                     redirectInput(archivo).
                     redirectOutput(archivo).
                     redirectError(archivoErrores).start();
