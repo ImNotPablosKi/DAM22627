@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/power"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textPower" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botonGuardar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
