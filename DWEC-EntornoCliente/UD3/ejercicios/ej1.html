@@ -7,7 +7,28 @@
 
     <script>
 
-        
+        let vector = []
+
+        do {
+
+            const num = parseInt(prompt("Introduce un número, 0 = Salir")) 
+
+            if (Number.isInteger(num)) {
+
+                if (num === 0) break
+
+                vector = [...vector, num]
+
+            } else {
+
+                alert("Debes introducir un entero")
+
+            }
+
+        } while (true)
+
+        alert(`La media de todos esos números es ${vector.reduce((total, i) => total += i) / vector.length}`)
+
 
     </script>
 
