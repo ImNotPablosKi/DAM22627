@@ -12,6 +12,7 @@ class MainWindow(QMainWindow):
         formato = casilla.font()
         formato.setBold(True)
         formato.setFamily("Cascadia Code")
+        casilla.setTristate(True) # Para admitir casillas parcialmente marcadas
 
         casilla.setFont(formato)
         casilla.stateChanged.connect(self.muestraEstado)
