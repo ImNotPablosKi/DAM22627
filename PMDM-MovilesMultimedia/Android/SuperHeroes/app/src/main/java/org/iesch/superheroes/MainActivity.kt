@@ -1,11 +1,15 @@
 package org.iesch.superheroes
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RatingBar
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,6 +20,20 @@ class MainActivity : AppCompatActivity() {
 
     // 1 - Creamos la variable lateinit, pues la vamos a inicializar luego
     private lateinit var binding: ActivityMainBinding
+
+    // Variable para manejar el resultado de haber hecho una foto
+    private lateinit var heroImage: ImageView
+    private  var heroBitMap: Bitmap? = null
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
+
+        // Esto devuelve un objeto de tipo bitmap
+        bitmap ->
+            heroBitMap = bitmap
+            heroImage.setImageBitmap(heroBitMap)
+
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +51,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Listener para llamar a la cama
+        heroImage = binding.HeroNameImage
+        binding.HeroNameImage.setOnClickListener {
+
+            abrirCamara()
+
+        }
+
+
+
         // A partir de aquí introduzco el código necesario
-        val botonGuardar = findViewById<Button>(R.id.botonGuardar)
 
         binding.botonGuardar.setOnClickListener {
 
@@ -51,6 +78,13 @@ class MainActivity : AppCompatActivity() {
             irADetailActivity(superHeroe)
 
         }
+    }
+
+    fun abrirCamara() {
+
+        // Abrimos la camara llamando al getContent
+        getContent.launch(null)
+
     }
 
     fun irADetailActivity(superheroe: SuperHeroe) {

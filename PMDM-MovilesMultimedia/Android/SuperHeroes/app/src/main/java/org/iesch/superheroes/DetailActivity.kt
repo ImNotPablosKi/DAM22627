@@ -39,12 +39,12 @@ class DetailActivity : AppCompatActivity() {
         val superHeroe = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
 
             // Para versiones SDK 33 o superiores
-            intent.getParcelableExtra("superHero", SuperHeroe::class.java)
+            intent.getParcelableExtra("superHeroe", SuperHeroe::class.java)
 
         } else {
 
             // Para versiones anteriores a SDK 33
-            intent.getParcelableExtra<SuperHeroe>("superHero")
+            intent.getParcelableExtra<SuperHeroe>("superHeroe")
 
         }
 
