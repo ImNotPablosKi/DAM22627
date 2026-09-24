@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityMainBinding
@@ -100,6 +101,9 @@ class MainActivity : AppCompatActivity() {
 //        intent.putExtra("power", superheroe.power)
 
         intent.putExtra("superHeroe", superheroe)
+
+        // Añadir objeto bitmap al intent
+        intent.putExtra("foto_heroe", heroImage.drawable.toBitmap())
 
         // Iniciar la actividad
         startActivity(intent)
