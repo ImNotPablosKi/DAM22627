@@ -2,7 +2,9 @@ package org.iesch.superheroes
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -11,11 +13,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityMainBinding
 import org.iesch.superheroes.model.SuperHeroe
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,12 +29,21 @@ class MainActivity : AppCompatActivity() {
     // Variable para manejar el resultado de haber hecho una foto
     private lateinit var heroImage: ImageView
     private  var heroBitMap: Bitmap? = null
-    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
 
-        // Esto devuelve un objeto de tipo bitmap
-        bitmap ->
-            heroBitMap = bitmap
-            heroImage.setImageBitmap(heroBitMap)
+    // Hay que cambiar takePicturesPreview por takePictures
+
+    private var picturepath = ""
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()) {
+
+        // Nos devolverá un booleano, si la foto es exitosa o no
+        success ->
+            if (success && picturepath.isNotEmpty()) {
+
+                heroBitMap = BitmapFactory.decodeFile(picturepath)
+                // Mostramos la imagen en el cuadradito
+                heroImage.setImageBitmap(heroBitMap)
+
+            }
 
     }
 
@@ -84,7 +97,25 @@ class MainActivity : AppCompatActivity() {
     fun abrirCamara() {
 
         // Abrimos la camara llamando al getContent
-        getContent.launch(null)
+        val imageFile = crearImagenFile()
+
+        // Ya tenemos el file, ahora necesitamos la URL
+        // Será a través del FileProvider, y lo que hace es compartir el File con otras aplicaciones de forma segura
+        val url = FileProvider.getUriForFile(this, "${applicationContext.packageName}.provider", imageFile)
+        getContent.launch(url)
+
+    }
+
+    // Esta función crea un objeto de tipo file y de eso recuperamos la URL
+    private fun crearImagenFile() : File {
+
+        val fileName = "superhero_image"
+        // Esto será el directorio donde vamos a almacenar la imagen. Por defecto es DIRECTORY_PICTURES
+        val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        // Creamos nuestro file, aqui nos pide el nombre, el formato y el directorio
+        val imageFile = File.createTempFile(fileName, ".jpg", fileDirectory)
+        picturepath = imageFile.absolutePath
+        return imageFile
 
     }
 
@@ -103,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("superHeroe", superheroe)
 
         // Añadir objeto bitmap al intent
-        intent.putExtra("foto_heroe", heroImage.drawable.toBitmap())
+        intent.putExtra("path_heroe", picturepath)
 
         // Iniciar la actividad
         startActivity(intent)
