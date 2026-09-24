@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityDetailBinding
+import org.iesch.superheroes.model.SuperHeroe
 
 class DetailActivity : AppCompatActivity() {
 
@@ -28,17 +29,30 @@ class DetailActivity : AppCompatActivity() {
         }
 
         // Último paso: Recibimos los datos del MainActivity que hemos enviado
-        val bundle = intent.extras!!
-        val superHeroName = bundle.getString("superHeroName") ?: "No hay nombre." // Controlar nulos
-        val alterEgo = bundle.getString("alterEgo") ?: "No hay un alter ego disponible."
-        val bio = bundle.getString("bio") ?: "No hay una biografía disponible."
-        val power = bundle.getFloat("power")
+        // val bundle = intent.extras!!
+        // val superHeroName = bundle.getString("superHeroName") ?: "No hay nombre." // Controlar nulos
+        // val alterEgo = bundle.getString("alterEgo") ?: "No hay un alter ego disponible."
+        // val bio = bundle.getString("bio") ?: "No hay una biografía disponible."
+        // val power = bundle.getFloat("power")
+
+        // 1 - Recibimos el objeto del Intent
+        val superHeroe = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+
+            // Para versiones SDK 33 o superiores
+            intent.getParcelableExtra("superHero", SuperHeroe::class.java)
+
+        } else {
+
+            // Para versiones anteriores a SDK 33
+            intent.getParcelableExtra<SuperHeroe>("superHero")
+
+        }
 
         // Rellenamos los campos con los valores recibidos
-        binding.heroNameTv.text = superHeroName
-        binding.alterEgoResult.text = alterEgo
-        binding.bioResult.text = bio
-        binding.ratingBar2.rating = power
+        binding.heroNameTv.text = superHeroe?.nombre ?: "No hay nombre"
+        binding.alterEgoResult.text = superHeroe?.alterEgo ?: "No hay alter ego"
+        binding.bioResult.text = superHeroe?.bio ?: "No hay biografía"
+        binding.ratingBar2.rating = superHeroe?.power ?: 0f // La f se pone porque es un float
 
     }
 }

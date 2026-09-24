@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
 
         // Añadimos todos los campos con el método putExtra
         // De esta manera, todos estos datos se llevarán a la detailActivity
-        intent.putExtra("superHeroName", superheroe.nombre)
-        intent.putExtra("alterEgo", superheroe.alterEgo)
-        intent.putExtra("bio", superheroe.bio)
-        intent.putExtra("power", superheroe.power)
+//        intent.putExtra("superHeroName", superheroe.nombre)
+//        intent.putExtra("alterEgo", superheroe.alterEgo)
+//        intent.putExtra("bio", superheroe.bio)
+//        intent.putExtra("power", superheroe.power)
 
-        // intent.putExtra("superHeroe", superherºoe)
+        intent.putExtra("superHeroe", superheroe)
 
         // Iniciar la actividad
         startActivity(intent)
