@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Hola, Héctor"
+            android:text="Hola, Colegón"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -39,6 +39,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.gridlayout.widget.GridLayout
+        app:columnCount="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -49,8 +50,13 @@
         <!-- TARJETA 1 - EDAD CANINA -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardEdadCanina"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="#7300FF">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,18 +65,61 @@
                 android:padding="12dp">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imgCanina"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:alpha="0.30"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/outline_apk_document_24" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="EdadCanina"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"></TextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TARJETA 2 - REGISTRO SUPERHEROES -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSuperHeroe"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp"
+            app:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="#56B8F6">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp">
+
+                <ImageView
+                    android:id="@+id/imgSuperHeroes"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:alpha="0.30"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/outline_assist_walker_24"
+                    tools:layout_editor_absoluteX="12dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="App Super Heroes"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     android:textStyle="bold"
