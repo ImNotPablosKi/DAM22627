@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let fecha = prompt("Dime una fecha y la compruebo:")
+
+        const match = fecha.match(/^(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4}$/)
+
+        if (match) {
+
+            alert("Fecha válida!")
+
+        } else {
+
+            alert("Fecha NO válida!")
+
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
