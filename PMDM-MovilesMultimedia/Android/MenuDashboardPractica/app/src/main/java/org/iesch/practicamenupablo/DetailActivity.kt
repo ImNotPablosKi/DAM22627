@@ -23,8 +23,8 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Recivo los datos del objeto
-        // Dependiendo la versión del SDK uso una cosa u otra
+        // Recibir los datos del objeto
+        // Depende de la versión del SDK
         val superheroe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
             // Para versiones SDK 33 o suepriores
 
@@ -39,25 +39,18 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
-//        // Recivo los datos enviados con el intent
+        // Recibir datos del intent
         val bundle = intent.extras!!
-        //val bitmap = bundle.getParcelable<Bitmap>("foto_heroe")
+
         val bitmapDirection = bundle.getString("path_heroe")
         val bitmap = BitmapFactory.decodeFile(bitmapDirection)
 
-//
-//        val nombreSuperHeroe = bundle.getString("nombreSuperHeroe") ?: "No Hay nombre" // Esto es un elvis, es el texto que sale en caso de que esté vacío, un alt
-//        val alterego = bundle.getString("alterego") ?: "No Hay alterego"
-//        val bio = bundle.getString("bio") ?: "No Hay bio"
-//        val power = bundle.getFloat("power")
-
-        // Ahora hay que rellenar los campos
+        // Rellenar los campos
         binding.heroNameTv.text = superheroe?.nombre ?: "No hay nombre"
         binding.alterEgoResult.text = superheroe?.alterEgo ?: "No hay alterego"
         binding.Bioesult.text = superheroe?.bio ?: "No hay bio"
 
-        //Pongo la foto
+        // Poner la foto que vaya sufrida
         binding.imagenHeroeGrande.setImageBitmap(bitmap)
 
         binding.ratingBar2.rating = superheroe?.poder ?: 0f // la f es para especificar float

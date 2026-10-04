@@ -17,20 +17,22 @@ import java.io.File
 
 class HeroActivity : AppCompatActivity() {
 
-    // 1 - Creo la variable lateinit para inicializarla luego
+    // Creo la variable lateinit para inicializarla luego
     private lateinit var binding: ActivityHeroBinding
 
-    // Vreo la variable que va a manegar el resultado de hacer la foto
+    // Creo la variable que va a manejar el resultado de hacer la foto
     private lateinit var  heroImage: ImageView
     private var heroBitmap: Bitmap? = null
 
 
 
-    // Para hacer la foto y recoger la foto de otro lado
+    // Hacer la foto y recoger la foto desde el otro lado
     private var picturePath = ""
     private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
-        // Esto devuelve un objeto bigMap si es el preview, en este caso TakePicture usa picturePath porque así no tiene solo un MB y devuelve un booleano
-            success ->
+
+        // Esto devuelve un objeto bitMap si es el preview,
+        // TakePicture usa picturePath porque así devuelve un booleano
+        success ->
         if (success && picturePath.isNotEmpty()){
             // Podemos transformar la imagen del directorio en un bitmap
             heroBitmap = BitmapFactory.decodeFile(picturePath)
@@ -40,7 +42,8 @@ class HeroActivity : AppCompatActivity() {
     }
 
     fun abrirCamara(){
-        // Aquí creo un path temporal para guardar la imagen
+
+        // Path temporal para guardar la imagen
         val imageFile = crearImagenFile()
 
         // Ahora ya tenemos file pero necesitamos la uri
@@ -50,15 +53,20 @@ class HeroActivity : AppCompatActivity() {
     }
 
     private fun crearImagenFile() : File{
-        // esta función crea un file y sacamos la url de este
+
+        // Esta función crea un file y saca su url
         val fileName = "superhero_image"
-        // Esto es el directorio donde se van a guardar las imagenes, por defecto es DIRECTORY_PICTURES
+
+        // Directorio donde se van a guardar las imagenes, por defecto es DIRECTORY_PICTURES
         val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        // Creo el file
+
+        // Crear el file
         val imageFile = File.createTempFile(fileName, ".jpg", fileDirectory)
+
         // Ahora se guarda la ruta en la variable global
         picturePath = imageFile.absolutePath
         return imageFile
+
     }
 
 
@@ -81,8 +89,9 @@ class HeroActivity : AppCompatActivity() {
 
         // Añado un trigger para el boton
         binding.Guardar.setOnClickListener {
+
             // Obtengo los valores al hacer click
-            // El .toString es para asegurar que sean strings
+            // El .toString() es para asegurar que sean strings
             val nombreSuperHeroe = binding.heroNameEdit.text.toString()
             val alterego = binding.alterEgoEdit.text.toString()
             val bio = binding.editTextText.text.toString()
@@ -91,24 +100,16 @@ class HeroActivity : AppCompatActivity() {
         }
     }
 
-//    fun abrirCamaraClick() {
-//        // Esta finción abre la camara llamado al getcontent launch
-//        getContent.launch(null)
-//    }
-
     fun irADetailActivity(superheroe: Superheroe) {
+
         // Creo el intent que me va a permitir moverme entre actividades
         val intent = Intent(this, DetailActivity::class.java)
 
-        // Añado todos los campos al intent para mandarlos al DetailActivity
-        //intent.putExtra("nombreSuperHeroe", nombreSuperHeroe)
-        //intent.putExtra("alterego", alterego)
-        //intent.putExtra("bio", bio)
-        //intent.putExtra("power", power)
-
         intent.putExtra("superHeroe", superheroe)
+
         // Paso la foto con intent
         intent.putExtra("path_heroe", picturePath)
+
         // La ejecuto
         startActivity(intent)
     }
