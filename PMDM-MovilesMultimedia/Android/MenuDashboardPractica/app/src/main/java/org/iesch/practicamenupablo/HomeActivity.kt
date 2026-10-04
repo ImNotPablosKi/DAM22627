@@ -26,7 +26,6 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val bundle = intent.extras!!
-
         binding.textoSaludo.text = getString(R.string.saludo, bundle.getString("usuario"))
 
         binding.imageViewPerro.setOnClickListener {
