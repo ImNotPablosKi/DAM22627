@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#76B7DE"
+    android:orientation="vertical"
+    tools:context=".EdadCaninaActivity"
+
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/perro" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/preguntar_edad"
+        android:textColor="#E3F2FF"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_edad"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#B3CEFF"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/texto_del_edit"
+        android:inputType="number"
+        android:textColor="#E3F2FF"
+        android:textColorHint="#B3CEFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/boton_calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#002C7A"
+        android:text="@string/texto_del_boton"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/texto_resp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:textColor="#E3F2FF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Si fueras un perro tendrías años" />
+
+</LinearLayout>

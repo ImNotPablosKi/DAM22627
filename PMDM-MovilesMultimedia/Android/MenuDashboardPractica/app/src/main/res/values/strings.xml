@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Practica</string>
+    <string name="bienvenida">Welcome to APP Iesch</string>
+    <string name="user">Login</string>
+    <string name="contrasena">Password</string>
+    <string name="loginBtn">Login</string>
+    <string name="saludo">Hello %s</string>
+    <string name="buenosDias">Welcome</string>
+    <string name="edadCanina">Dog Age</string>
+    <string name="heroes">SuperHeroes</string>
+    <string name="quizz">Quizzes</string>
+    <string name="conf">Settings</string>
+    <string name="favoritos">Favorite</string>
+    <string name="cerrarSesion">Log Out</string>
+    <string name="oferta1">Until</string>
+    <string name="oferta2">20 June - 30 July</string>
+    <string name="oferta3">40%</string>
+    <string name="oferta4">Discount</string>
+
+    <string name="preguntar_edad">How old are you?</string>
+    <string name="texto_del_edit">Introduce your age </string>
+    <string name="texto_del_boton">Calculate</string>
+    <string name="texto_respuesta">If you were a dog, you\'d be %d</string>
+    <string name="error_vacio">You must specify your age</string>
+</resources>

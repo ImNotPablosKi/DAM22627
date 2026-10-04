@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Practica</string>
+    <string name="bienvenida">Bienvenido a la App Iesch</string>
+    <string name="user">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="loginBtn">Iniciar sesión</string>
+    <string name="saludo">Hola %s</string>
+    <string name="buenosDias">Buenos días</string>
+    <string name="edadCanina">Edad canina</string>
+    <string name="heroes">Super Heroes</string>
+    <string name="quizz">Quizzes</string>
+    <string name="conf">Configuración</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="cerrarSesion">Cerrar sesión</string>
+    <string name="oferta1">Hasta</string>
+    <string name="oferta2">20 Junio - 30 Julio</string>
+    <string name="oferta3">40%</string>
+    <string name="oferta4">Descuento</string>
+
+    <string name="preguntar_edad">Que edad Tienes?</string>
+    <string name="texto_del_edit">Inroduce la edad de tu perro</string>
+    <string name="texto_del_boton">Calcular</string>
+    <string name="texto_respuesta">Si fueras un perro tendrías %d años</string>
+    <string name="error_vacio">Tienes que introducir una edad</string>
+</resources>
