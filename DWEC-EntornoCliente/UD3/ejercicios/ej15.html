@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ej15</title>
+
+    <script>
+
+        function calcularEdad(fechaNacimiento) {
+
+            const hoy = new Date();
+            const nacimiento = new Date(fechaNacimiento);
+
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const mesActual = hoy.getMonth();
+            const mesNacimiento = nacimiento.getMonth();
+
+            if (mesActual < mesNacimiento || (mesActual === mesNacimiento && hoy.getDate() < nacimiento.getDate())) {
+                edad--;
+            }
+
+            return edad;
+            
+        }
+
+        // Ejemplo de uso:
+
+        let fechaNac = prompt("Dime tu fecha de nacimiento (yyyy-mm-dd):")
+        alert(calcularEdad(fechaNac));
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

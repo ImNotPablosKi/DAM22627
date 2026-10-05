@@ -2,8 +2,8 @@ Estos son los buenos: 1
 Ahora viene cuando la matan: 2
 Me segis el razonamiento: 11
 Esto hay que madurarlo: 3
-Me seguis el concepto: 7
-Como va el tostón: 0
+Me seguis el concepto: 10
+Como va el tostón: 1
 Me he quedado solo?: 3
-vale: 1
-me explico: 2
+vale: 39
+me explico: 7

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ej14</title>
+
+    <script>
+
+        function esBisiestoMatematico(fechaString) {
+
+            const fecha = new Date(fechaString);
+            const anio = fecha.getFullYear();
+
+            // Divisible entre 4 pero no entre 100 a menos q si sea divisible entre 400
+            return (anio % 4 === 0 && anio % 100 !== 0) || (anio % 400 === 0);
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
