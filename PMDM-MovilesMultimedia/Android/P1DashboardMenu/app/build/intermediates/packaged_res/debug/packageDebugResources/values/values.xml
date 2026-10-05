@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">P1-DashboardMenu</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorprimary</item>
+        <item name="colorPrimaryDark">@color/colorprimarydark</item>
+        <item name="colorAccent">@color/coloraccent</item>
+
+    </style>
+    <style name="Base.Theme.P1DashboardMenu" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.P1DashboardMenu" parent="Base.Theme.P1DashboardMenu"/>
+</resources>
