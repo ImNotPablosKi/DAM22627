@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tabla 100×100 – Números casi primos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        #calcBtn {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            max-width: 90vw;
+        }
+
+        td {
+            width: 5px;
+            height: 5px;
+            border: 1px solid #eee;
+            padding: 0;
+        }
+
+        .highlight {
+            background-color: #ffeb3b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tabla 100×100 con Números Casi Primos</h1>
+    <button id="calcBtn">Calcular números casi primos</button>
+    <div id="table-container"></div>
+    <script>
+        const rows = 100, cols = 100, table = document.createElement('table'),
+            max = rows * cols, isPrime = new Uint8Array(max + 1), semiprime = new
+                Uint8Array(max + 1);
+        let num = 1;
+        for (let r = 0; r < rows; r++) {
+            const tr = document.createElement('tr');
+            for (let c = 0; c < cols; c++) {
+                const td = document.createElement('td');
+                td.dataset.value = num;
+                td.textContent = num;
+                tr.appendChild(td);
+                num++;
+            }
+            table.appendChild(tr);
+        }
+        document.getElementById('table-container').appendChild(table);
+        isPrime.fill(1, 2);
+        for (let i = 2; i * i <= max; i++) {
+            if (isPrime[i]) {
+                for (let j = i * i; j <= max; j += i) isPrime[j] = 0;
+            }
+        }
+        for (let n = 2; n <= max; n++) {
+            let cnt = 0, temp = n;
+            for (let p = 2; p * p <= temp; p++) {
+                while (temp % p === 0) {
+                    cnt++;
+                    temp /= p;
+                    if (cnt > 2) break;
+                }
+                if (cnt > 2) break;
+            }
+            if (temp > 1) cnt++;
+            if (cnt === 2) semiprime[n] = 1;
+        }
+        document.getElementById('calcBtn').addEventListener('click', () => {
+            const cells = table.querySelectorAll('td');
+            cells.forEach(td => {
+                const val = +td.dataset.value;
+                if (semiprime[val]) td.classList.add('highlight');
+                else td.classList.remove('highlight');
+            });
+        });
+    </script>
+</body>
+
+</html>
