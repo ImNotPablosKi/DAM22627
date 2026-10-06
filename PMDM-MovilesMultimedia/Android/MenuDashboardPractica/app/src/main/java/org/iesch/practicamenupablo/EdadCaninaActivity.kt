@@ -21,13 +21,10 @@ class EdadCaninaActivity : AppCompatActivity() {
             insets
         }
 
-        // Aquí la pantalla está creada y se configuran los elementos de la interfaz
-        // Primero asignamos los elementos a variables
         val textoResultado = findViewById<TextView>(R.id.texto_resp)
         val botonCalcular = findViewById<Button>(R.id.boton_calcular)
         val edadEdit = findViewById<EditText>(R.id.edit_edad)
 
-        // Añadir funcionalidades a los elementos
         // Escuchar en el boton para esperar el click
         botonCalcular.setOnClickListener {
 

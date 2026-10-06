@@ -17,26 +17,17 @@ import java.io.File
 
 class HeroActivity : AppCompatActivity() {
 
-    // Creo la variable lateinit para inicializarla luego
     private lateinit var binding: ActivityHeroBinding
 
-    // Creo la variable que va a manejar el resultado de hacer la foto
     private lateinit var  heroImage: ImageView
     private var heroBitmap: Bitmap? = null
 
-
-
-    // Hacer la foto y recoger la foto desde el otro lado
     private var picturePath = ""
     private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
 
-        // Esto devuelve un objeto bitMap si es el preview,
-        // TakePicture usa picturePath porque así devuelve un booleano
         success ->
         if (success && picturePath.isNotEmpty()){
-            // Podemos transformar la imagen del directorio en un bitmap
             heroBitmap = BitmapFactory.decodeFile(picturePath)
-            // Pongo la imagen
             heroImage.setImageBitmap(heroBitmap)
         }
     }
@@ -46,24 +37,18 @@ class HeroActivity : AppCompatActivity() {
         // Path temporal para guardar la imagen
         val imageFile = crearImagenFile()
 
-        // Ahora ya tenemos file pero necesitamos la uri
-        // Se usa FileProvider que comparte el file con otras aplicaciones de forma segura
         val uri = FileProvider.getUriForFile(this, "${applicationContext.packageName}.provider", imageFile)
         getContent.launch(uri)
     }
 
     private fun crearImagenFile() : File{
 
-        // Esta función crea un file y saca su url
         val fileName = "superhero_image"
 
-        // Directorio donde se van a guardar las imagenes, por defecto es DIRECTORY_PICTURES
         val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
 
-        // Crear el file
         val imageFile = File.createTempFile(fileName, ".jpg", fileDirectory)
 
-        // Ahora se guarda la ruta en la variable global
         picturePath = imageFile.absolutePath
         return imageFile
 
@@ -81,7 +66,6 @@ class HeroActivity : AppCompatActivity() {
             insets
         }
 
-        // Hago que la imagen sea clickable
         heroImage = binding.heroImage
         binding.heroImage.setOnClickListener {
             abrirCamara()
@@ -90,8 +74,6 @@ class HeroActivity : AppCompatActivity() {
         // Añado un trigger para el boton
         binding.Guardar.setOnClickListener {
 
-            // Obtengo los valores al hacer click
-            // El .toString() es para asegurar que sean strings
             val nombreSuperHeroe = binding.heroNameEdit.text.toString()
             val alterego = binding.alterEgoEdit.text.toString()
             val bio = binding.editTextText.text.toString()
@@ -102,15 +84,13 @@ class HeroActivity : AppCompatActivity() {
 
     fun irADetailActivity(superheroe: Superheroe) {
 
-        // Creo el intent que me va a permitir moverme entre actividades
         val intent = Intent(this, DetailActivity::class.java)
 
         intent.putExtra("superHeroe", superheroe)
 
-        // Paso la foto con intent
         intent.putExtra("path_heroe", picturePath)
 
-        // La ejecuto
+        // start obvio
         startActivity(intent)
     }
 }
