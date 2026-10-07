@@ -43,6 +43,18 @@ class MainWindow(QMainWindow): # Creación de una clase
 
         self.setStatusBar(QStatusBar(self))
 
+        menu = self.menuBar()
+        menu_archivo = menu.addMenu("&Archivo")
+        menu_editar = menu.addMenu("&Editar")        
+        menu_insertar = menu.addMenu("&Insertar")        
+        menu_archivo.addAction(boton)
+        menu_archivo.addAction(boton2)
+        barra.addSeparator()
+        menu_mas = menu_archivo.addMenu("Más")
+        menu_mas.addAction(boton)
+        menu_mas.addAction(boton2)
+
+
     def botonpulsado(self, s):
         print("pulsado", s)
 
