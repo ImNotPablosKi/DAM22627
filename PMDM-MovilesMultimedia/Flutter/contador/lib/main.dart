@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       home: Scaffold(
         body: Center(
           child: Text("Hola a DAM 2"),
