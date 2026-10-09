@@ -5,7 +5,7 @@ from PyQt6.QtGui import QAction, QIcon
 from cuadrado import Color
 
 class MainWindow(QMainWindow): # Creación de una clase
-    
+
     cont = 0
     
     def __init__(self): # Creación de una función
@@ -13,29 +13,31 @@ class MainWindow(QMainWindow): # Creación de una clase
         
         self.setWindowTitle("Mi aplicación")
 
-        etiqueta = QLabel("Hola")
-        etiqueta.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        etiqueta = QLabel("Hola!")
+        etiqueta.setAlignment(Qt.AlignmentFlag.AlignLeft)
 
         barra = QToolBar("Barra de Herramientas")
         barra.setIconSize(QSize(16,16))
         self.addToolBar(barra)
 
-        boton = QAction(QIcon("UD1/EjerciciosPython/icons/bug.png"), "Mi Botón", self)
-        boton.setStatusTip("Este es mi otro botón")
+        boton = QAction(QIcon("UD1/EjerciciosPython/icons/application-dock.png"), "Abrir", self)
+        boton.setStatusTip("Boton para abrir")
         boton.triggered.connect(self.botonpulsado)
         barra.addAction(boton)
 
         barra.addSeparator()
 
-        boton2 = QAction(QIcon("UD1/EjerciciosPython/icons/cake.png"), "Mi Botón", self)
-        boton2.setStatusTip("Este es mi botón")
+        boton2 = QAction(QIcon("UD1/EjerciciosPython/icons/document.png"), "Nuevo", self)
+        boton2.setStatusTip("Nuevo archivo")
         boton2.triggered.connect(self.botonpulsado)
         barra.addAction(boton2)
 
         barra.addSeparator()
 
-        barra.addWidget(QLabel("Texto"))
-        barra.addWidget(QCheckBox("Selección"))
+        boton3 = QAction(QIcon("UD1/EjerciciosPython/icons/disk.png"), "Guardar", self)
+        boton3.setStatusTip("Boton para guardar")
+        boton3.triggered.connect(self.botonpulsado)
+        barra.addAction(boton3)
 
         self.setCentralWidget(etiqueta)
 
@@ -45,14 +47,21 @@ class MainWindow(QMainWindow): # Creación de una clase
 
         menu = self.menuBar()
         menu_archivo = menu.addMenu("&Archivo")
-        menu_editar = menu.addMenu("&Editar")        
-        menu_insertar = menu.addMenu("&Insertar")        
+        menu_ayuda = menu.addMenu("&Ayuda")        
+         
         menu_archivo.addAction(boton)
         menu_archivo.addAction(boton2)
+        menu_archivo.addAction(boton3)
         barra.addSeparator()
-        menu_mas = menu_archivo.addMenu("Más")
-        menu_mas.addAction(boton)
-        menu_mas.addAction(boton2)
+
+        labelX = QAction("X", self)
+        labelInstagram = QAction("Instagram", self)
+        labelX.setStatusTip("Síguenos en X")
+        labelInstagram.setStatusTip("Síguenos en Instagram")
+
+        menu_mas = menu_ayuda.addMenu("Síguenos")
+        menu_mas.addAction(labelX)
+        menu_mas.addAction(labelInstagram)
 
 
     def botonpulsado(self, s):
