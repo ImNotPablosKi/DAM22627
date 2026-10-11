@@ -16,7 +16,8 @@
     <string name="oferta2">20 June - 30 July</string>
     <string name="oferta3">40%</string>
     <string name="oferta4">Discount</string>
-
+    <string name="quizzes">Quizzes</string>
+    <string name="siguiente">Next</string>
     <string name="preguntar_edad">How old are you?</string>
     <string name="texto_del_edit">Introduce your age </string>
     <string name="texto_del_boton">Calculate</string>

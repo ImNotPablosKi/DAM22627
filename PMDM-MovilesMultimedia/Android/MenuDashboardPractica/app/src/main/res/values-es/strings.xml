@@ -17,7 +17,8 @@
     <string name="oferta2">20 Junio - 30 Julio</string>
     <string name="oferta3">40%</string>
     <string name="oferta4">Descuento</string>
-
+    <string name="quizzes">Cuestionarios</string>
+    <string name="siguiente">Siguiente</string>
     <string name="preguntar_edad">Que edad Tienes?</string>
     <string name="texto_del_edit">Inroduce la edad de tu perro</string>
     <string name="texto_del_boton">Calcular</string>

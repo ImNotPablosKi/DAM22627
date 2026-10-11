@@ -37,6 +37,8 @@
             android:name=".DetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".Quizz" android:exported="false" />
+        <activity android:name=".QuizzAnswer" android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

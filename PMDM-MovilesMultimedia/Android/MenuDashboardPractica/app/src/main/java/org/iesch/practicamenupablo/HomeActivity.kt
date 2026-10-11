@@ -36,5 +36,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, HeroActivity::class.java))
         }
 
+        binding.imageViewQuizzes.setOnClickListener {
+            startActivity(Intent(this, Quizz::class.java))
+        }
+
     }
 }

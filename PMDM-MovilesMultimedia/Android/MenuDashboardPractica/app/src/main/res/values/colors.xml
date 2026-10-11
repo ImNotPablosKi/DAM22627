@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#7C7C7C</color>
     <color name="amarillo">#FFEB3B</color>
+    <color name="whiteGrey">#E7E6E6</color>
+    <color name="yellow">#DCCB36</color>
+    <color name="miAzul">#2A6D60</color>
+    <color name="darkGrey">#262B2C</color>
 </resources>
