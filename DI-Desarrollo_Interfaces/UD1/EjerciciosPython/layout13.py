@@ -1,5 +1,5 @@
 from PyQt6.QtCore import Qt, QSize
-from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QToolBar, QStatusBar
+from PyQt6.QtWidgets import QCheckBox, QApplication, QMainWindow, QLabel, QToolBar, QStatusBar
 from PyQt6.QtGui import QAction, QIcon
 
 from cuadrado import Color
@@ -17,11 +17,25 @@ class MainWindow(QMainWindow): # Creación de una clase
         etiqueta.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         barra = QToolBar("Barra de Herramientas")
+        barra.setIconSize(QSize(16,16))
         self.addToolBar(barra)
 
-        boton = QAction("Mi Botón", self)
-        boton.setStatusTip("Este es mi botón")
+        boton = QAction(QIcon("UD1/EjerciciosPython/icons/bug.png"), "Mi Botón", self)
+        boton.setStatusTip("Este es mi otro botón")
         boton.triggered.connect(self.botonpulsado)
+        barra.addAction(boton)
+
+        barra.addSeparator()
+
+        boton2 = QAction(QIcon("UD1/EjerciciosPython/icons/cake.png"), "Mi Botón", self)
+        boton2.setStatusTip("Este es mi botón")
+        boton2.triggered.connect(self.botonpulsado)
+        barra.addAction(boton2)
+
+        barra.addSeparator()
+
+        barra.addWidget(QLabel("Texto"))
+        barra.addWidget(QCheckBox("Selección"))
 
         self.setCentralWidget(etiqueta)
 

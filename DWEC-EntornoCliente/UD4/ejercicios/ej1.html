@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <head>
+        <script>
+		//Inserta un elemento aleatorio
+
+		function insertar(evento){
+
+			// Creamos el elemento LI y su texto por separado
+			nuevoHijo=document.createElement("LI");
+			nodoTexto=document.createTextNode(Math.random());
+
+			// Unimos el texto al elemento LI
+			nuevoHijo.appendChild(nodoTexto);
+            
+			// Añadimos el elemento LI a la UL
+			document.getElementById("miLista").appendChild(nuevoHijo);
+	
+		}
+
+		function borrar(evento){
+
+			const contenedorLista = document.getElementById('miLista');
+			const ultimoElemento = contenedorLista.lastElementChild;
+
+			if (ultimoElemento) { 
+  				contenedorLista.removeChild(ultimoElemento);
+			}
+		}
+
+		</script>
+    </head>
+    <body class="m-5">
+		<ul id="miLista">
+			<li> Primer Elemento </li>
+			<li> Segundo Elemento </li>
+		</ul>
+		<input type="button" value="Insertar Aleatorio" onclick="insertar();"/>
+		<input type="button" value="Eliminar Ultimo" onclick="borrar();" />		
+	</body>
+</html>

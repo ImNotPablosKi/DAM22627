@@ -1,0 +1,8 @@
+org.iesch.p1_dashboardmenu.app-pngs-0 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\build\generated\res\pngs\debug
+org.iesch.p1_dashboardmenu.app-updated_navigation_xml-1 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\build\generated\updated_navigation_xml\debug
+org.iesch.p1_dashboardmenu.app-packageDebugResources-2 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+org.iesch.p1_dashboardmenu.app-packageDebugResources-3 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+org.iesch.p1_dashboardmenu.app-debug-4 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\build\intermediates\merged_res\debug\mergeDebugResources
+org.iesch.p1_dashboardmenu.app-debug-5 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\src\debug\res
+org.iesch.p1_dashboardmenu.app-main-6 C:\Users\dam2\Desktop\GIT\DAM22627\PMDM-MovilesMultimedia\Android\P1DashboardMenu\app\src\main\res
+gradleHome-0 C:\Users\dam2\.gradle

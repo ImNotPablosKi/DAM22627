@@ -24,13 +24,10 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
         // Recibir los datos del objeto
-        // Depende de la versión del SDK
+        // versión del SDK
         val superheroe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            // Para versiones SDK 33 o suepriores
-
             intent.getParcelableExtra("superHeroe", Superheroe::class.java)
         } else {
-            // Para versiones anteriores que la 33
             intent.getParcelableExtra<Superheroe>("superHeroe")
         }
 
@@ -39,18 +36,16 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        // Recibir datos del intent
+
         val bundle = intent.extras!!
 
         val bitmapDirection = bundle.getString("path_heroe")
         val bitmap = BitmapFactory.decodeFile(bitmapDirection)
 
-        // Rellenar los campos
         binding.heroNameTv.text = superheroe?.nombre ?: "No hay nombre"
         binding.alterEgoResult.text = superheroe?.alterEgo ?: "No hay alterego"
         binding.Bioesult.text = superheroe?.bio ?: "No hay bio"
 
-        // Poner la foto que vaya sufrida
         binding.imagenHeroeGrande.setImageBitmap(bitmap)
 
         binding.ratingBar2.rating = superheroe?.poder ?: 0f // la f es para especificar float
