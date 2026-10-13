@@ -24,14 +24,14 @@ class Quizz : AppCompatActivity() {
         var arrayProgressText = arrayOf("1/3", "2/3", "3/3")
 
         var arrayPreguntaActual = arrayOf(
-            "¿Que valor tiene Y en esta situación?",
-            "¿Que valor tiene X en esta situación?",
-            "¿Que valor tiene Z en esta situación?"
+            "Valor de Y?",
+            "Valor de X?",
+            "Valor de Z?"
         )
         var arrayPreguntaActualExtra = arrayOf(
-            "10 y = 70",
-            "20 x = 10",
-            "30 z = 150"
+            "10y = 70",
+            "20x = 10",
+            "30z = 150"
         )
 
         var arrayOpcion1 = arrayOf(
@@ -118,7 +118,7 @@ class Quizz : AppCompatActivity() {
             if (preguntaActual == 1) {
 
                 if (opcionEscogida == 0) {
-                    Toast.makeText(this, "Porfavor Selecciona una opción", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "DEBES Seleccionar una opción", Toast.LENGTH_SHORT).show()
 
                 } else {
                     if (opcionEscogida == 1) {
