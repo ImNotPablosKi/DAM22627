@@ -39,7 +39,7 @@ class ColaTareas {
 
     synchronized int consumir() {
 
-        while (cola.size() == 0) {
+        while (cola.isEmpty()) {
 
 
             try {

@@ -40,47 +40,48 @@ public class Ejercicio1 {
 
 
     }
-}
 
-class GestorDescargas {
+    static class GestorDescargas {
 
-    private static int descargasCompletadas;
+        private static int descargasCompletadas;
 
-    static synchronized void registrarDescargas(String nombreArchivo) {
+        static synchronized void registrarDescargas(String nombreArchivo) {
 
-        System.out.println(" [Descargador " + Thread.currentThread() + "]" + nombreArchivo + " descargado. Total: " + descargasCompletadas);
-
-    }
-
-    public int getDescargasCompletadas() {
-        return descargasCompletadas;
-    }
-}
-
-class Descargador implements Runnable {
-
-    private String nombreArchivo;
-
-    public Descargador(String nombreArchivo) {
-        this.nombreArchivo = nombreArchivo;
-    }
-
-    Random rando = new Random();
-
-    @Override
-    public void run() {
-
-        try {
-
-            Thread.sleep(rando.nextInt(500, 1501));
-            GestorDescargas.registrarDescargas(nombreArchivo);
-            Thread.interrupted();
-
-        } catch (InterruptedException e) {
-
-            System.out.println("La descarga de " + nombreArchivo + " ha sido interrumpida.");
+            descargasCompletadas++;
+            System.out.println(" [Descargador " + Thread.currentThread() + "]" + nombreArchivo + " descargado. Total: " + descargasCompletadas);
 
         }
 
+        public int getDescargasCompletadas() {
+            return descargasCompletadas;
+        }
+    }
+
+    static class Descargador implements Runnable {
+
+        private String nombreArchivo;
+
+        public Descargador(String nombreArchivo) {
+            this.nombreArchivo = nombreArchivo;
+        }
+
+        Random rando = new Random();
+
+        @Override
+        public void run() {
+
+            try {
+
+                Thread.sleep(rando.nextInt(500, 1501));
+                GestorDescargas.registrarDescargas(nombreArchivo);
+                Thread.interrupted();
+
+            } catch (InterruptedException e) {
+
+                System.out.println("La descarga de " + nombreArchivo + " ha sido interrumpida.");
+
+            }
+
+        }
     }
 }
