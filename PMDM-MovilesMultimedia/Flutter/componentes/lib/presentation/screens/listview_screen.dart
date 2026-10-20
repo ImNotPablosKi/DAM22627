@@ -10,17 +10,132 @@ class ListviewScreen extends StatelessWidget {
       appBar: AppBar(title: Text("ListView Tipo 1"),),
       body: ListView(
          children: [
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
-          Text("Hola a DAM 2"),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.access_alarm),
+            title: Text("Hola Mundo"),
+            onTap: () => {
+
+              
+
+            },
+          ),
          ],
       ),
     );
