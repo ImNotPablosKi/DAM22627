@@ -20,7 +20,33 @@ class _ContadorScreenState extends State<ContadorScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contador App"),
+        backgroundColor: Colors.purple.shade900,
         centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              contador = 0;
+              setState(() {
+          
+              });
+            }, 
+            icon: Icon(Icons.refresh_rounded)
+          ),
+          actions: [
+          IconButton(
+            onPressed: () {
+              contador = 0;
+              setState(() {});
+            },
+            icon: Icon(Icons.refresh_rounded),
+          ),
+          IconButton(
+            onPressed: () {
+              contador = 0;
+              setState(() {});
+            },
+            icon: Icon(Icons.refresh_rounded),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -30,7 +56,8 @@ class _ContadorScreenState extends State<ContadorScreen> {
               fontSize: 160,
               fontWeight: .w100
             ),),
-            Text("Clicks", style: TextStyle(
+          
+            Text(contador == 1 ? "Click" : "Clicks", style: TextStyle(
               fontSize: 25,
             ),),
           ],
@@ -40,9 +67,36 @@ class _ContadorScreenState extends State<ContadorScreen> {
         mainAxisAlignment: .end,
         spacing: 10,
         children: [
-          BotonPersonalizado(icono: Icons.refresh_rounded,),
-          BotonPersonalizado(icono: Icons.plus_one,),
-          BotonPersonalizado(icono: Icons.exposure_minus_1,),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.add),
+            onPressed: () {
+              contador++;
+              setState(() {
+          
+              });
+            },
+          ),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.exposure_minus_1),
+            onPressed: () {
+              contador != 0 ? contador-- : contador = 0;
+              setState(() {
+          
+              });
+            },
+          ),
+          FloatingActionButton(
+            shape: StadiumBorder(),
+            child: Icon(Icons.refresh_outlined),
+            onPressed: () {
+              contador = 0;
+              setState(() {
+          
+              });
+            },
+          ),
         ],
       )
     );
