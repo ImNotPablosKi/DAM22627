@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
 
     }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -70,8 +70,6 @@ class MainActivity : AppCompatActivity() {
             abrirCamara()
 
         }
-
-
 
         // A partir de aquí introduzco el código necesario
 
