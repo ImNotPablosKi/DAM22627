@@ -67,40 +67,48 @@ class _ContadorScreenState extends State<ContadorScreen> {
         mainAxisAlignment: .end,
         spacing: 10,
         children: [
-          FloatingActionButton(
-            shape: StadiumBorder(),
-            child: Icon(Icons.add),
-            onPressed: () {
+          CustomButton(icono: Icons.add, onPressed: () {
+            setState(() {
               contador++;
-              setState(() {
-          
-              });
-            },
-          ),
-          FloatingActionButton(
-            shape: StadiumBorder(),
-            child: Icon(Icons.exposure_minus_1),
-            onPressed: () {
-              contador != 0 ? contador-- : contador = 0;
-              setState(() {
-          
-              });
-            },
-          ),
-          FloatingActionButton(
-            shape: StadiumBorder(),
-            child: Icon(Icons.refresh_outlined),
-            onPressed: () {
+            });
+          },),
+          CustomButton(icono: Icons.exposure_minus_1, onPressed: () {
+            setState(() {
+              contador > 0 ? contador-- : contador = 0;
+            });
+          },),
+          CustomButton(icono: Icons.refresh_rounded, onPressed: () {
+            setState(() {
               contador = 0;
-              setState(() {
-          
-              });
-            },
-          ),
+            });
+          },),
         ],
       )
     );
 
+  }
+}
+
+class CustomButton extends StatelessWidget {
+
+  final IconData icono;
+  final VoidCallback? onPressed;
+
+  const new({
+    super.key,
+    required this.icono,
+    this.onPressed
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      // shape: StadiumBorder(),
+      enableFeedback: true,
+      elevation: 5,
+      onPressed: onPressed,
+      child: Icon(icono),
+    );
   }
 }
 
