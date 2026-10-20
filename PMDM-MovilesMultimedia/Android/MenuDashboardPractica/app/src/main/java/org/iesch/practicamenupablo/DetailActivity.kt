@@ -31,8 +31,6 @@ class DetailActivity : AppCompatActivity() {
             intent.getParcelableExtra<Superheroe>("superHeroe")
         }
 
-
-
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
