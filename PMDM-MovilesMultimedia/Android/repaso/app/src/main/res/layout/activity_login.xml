@@ -32,7 +32,7 @@
         android:background="@drawable/backgroud_login_text"
         android:ems="10"
         android:hint="Contraseña..."
-        android:inputType="text"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"

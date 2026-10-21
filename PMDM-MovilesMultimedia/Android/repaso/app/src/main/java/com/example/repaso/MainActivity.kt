@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.repaso.databinding.ActivityMainBinding
@@ -39,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         // Recibir Foto
         binding.imagenFotoMain.setImageBitmap(intent.getParcelableExtra("foto"))
 
+        binding.card1.setOnClickListener {
+
+            binding.imagenFotoMain.setImageResource(R.drawable.sick)
+            binding.textoCard1.setText("Imagen cambiada!")
+
+        }
+
+        // Terminar la activity actual y volver al anterior en la cola
         binding.botonVolver.setOnClickListener {
             finish()
         }

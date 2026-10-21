@@ -3,6 +3,7 @@ package com.example.repaso
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -56,7 +57,15 @@ class LoginActivity : AppCompatActivity() {
             intent.putExtra("foto", foto)
             intent.putExtra("dato", datos)
 
-            startActivity(intent)
+            if (binding.editPasswd.text.isEmpty()) {
+
+                Toast.makeText(this, "DEBES introducir una contraseña ", Toast.LENGTH_LONG).show()
+
+            } else {
+
+                startActivity(intent)
+
+            }
 
         }
 
