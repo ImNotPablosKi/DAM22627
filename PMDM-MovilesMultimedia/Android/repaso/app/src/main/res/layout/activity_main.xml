@@ -8,6 +8,15 @@
     tools:context=".MainActivity">
 
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="@drawable/background_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
@@ -65,6 +74,7 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="5dp"
             app:contentPadding="20dp"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1">
 
             <TextView
@@ -101,6 +111,9 @@
             android:padding="20dp"
             app:cardBackgroundColor="#2EA7D0"
             app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:layout_rowSpan="2"
+            app:layout_rowWeight="1"
             app:layout_columnWeight="1">
 
             <TextView
@@ -110,6 +123,28 @@
                 android:layout_margin="20dp"
                 android:text="Card 5"
                 android:textColor="@color/white" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card6"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            app:layout_columnWeight="1"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            android:backgroundTint="@color/design_default_color_error">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card 6"
+                android:layout_margin="20dp"
+                android:textColor="@color/white"
+
+                />
         </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>
@@ -144,7 +179,7 @@
         android:id="@+id/imagenFotoMain"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonVolver"

@@ -7,12 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:background="@drawable/background_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:background="@drawable/backgroud_login_text"
+        android:drawableStart="@drawable/outline_account_box_24"
         android:ems="10"
         android:hint="Usuario..."
         android:inputType="text"
@@ -32,6 +42,10 @@
         android:background="@drawable/backgroud_login_text"
         android:ems="10"
         android:hint="Contraseña..."
+<<<<<<< HEAD
+=======
+        android:drawableStart="@drawable/outline_account_balance_wallet_24"
+>>>>>>> c42824a (alea iacta est)
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"

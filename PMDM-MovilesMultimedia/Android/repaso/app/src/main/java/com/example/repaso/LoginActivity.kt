@@ -3,6 +3,10 @@ package com.example.repaso
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+<<<<<<< HEAD
+=======
+import android.util.Log
+>>>>>>> c42824a (alea iacta est)
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -59,7 +63,12 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.editPasswd.text.isEmpty()) {
 
+<<<<<<< HEAD
                 Toast.makeText(this, "DEBES introducir una contraseña ", Toast.LENGTH_LONG).show()
+=======
+                Toast.makeText(this, "Imbecil", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+>>>>>>> c42824a (alea iacta est)
 
             } else {
 
@@ -69,6 +78,13 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        Log.i("Log guapo", "Esto es un Log")
+    }
 
+    override fun onResume() {
+        super.onResume()
+        binding.editPasswd.text.clear()
+
+        Log.i("resume", "Esto es el método onResume()")
     }
 }
