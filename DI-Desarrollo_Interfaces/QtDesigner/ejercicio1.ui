@@ -44,7 +44,10 @@
      </layout>
     </item>
     <item>
-     <widget class="QGroupBox" name="">
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox">
       <property name="title">
        <string>OPCIONES</string>
       </property>
@@ -81,9 +84,6 @@
          <string>Descripción</string>
         </property>
        </widget>
-      </item>
-      <item>
-       <widget class="QTextEdit" name="textEdit"/>
       </item>
      </layout>
     </item>
