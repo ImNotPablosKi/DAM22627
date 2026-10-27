@@ -12,6 +12,6 @@ document.addEventListener("dblclick", function (event) {
     const color = colores[random(-1,colores.length)]
     document.body.style = `background-color: ${color};`
 
-    console.log(color);
+    console.log(color)
 
 })
