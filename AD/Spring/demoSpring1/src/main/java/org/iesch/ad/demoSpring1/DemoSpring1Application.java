@@ -158,7 +158,7 @@ public class DemoSpring1Application implements CommandLineRunner {
 //		personaRepository.save(persona);
 
 		// Cargar de BBDD la persona con ID 13
-		Optional<Persona> persona = personaRepository.findById(13L);
+		/*Optional<Persona> persona = personaRepository.findById(13L);
 
 		if (persona.isPresent()) {
 			Persona p = persona.get();
@@ -167,7 +167,40 @@ public class DemoSpring1Application implements CommandLineRunner {
 
 		Optional<Coche> coche = cocheRepository.findById(1L);
 		// Hecprooll tech
-		coche.ifPresent(System.out::println);
+		coche.ifPresent(System.out::println);*/
+
+//		System.out.println("--- One 2 One BIDIRECCIONAL ---");
+//		Persona persona = Persona.builder().nombre("Pepito").dni("18779900G").apellidos("Perez Sánchez").email("pepitops@aa.es").build();
+//		personaRepository.save(persona);
+//
+//		Coche coche = Coche.builder().matricula("9988 NTP").build();
+//		cocheRepository.save(coche);
+//
+//		persona.setCoche(coche);
+//		coche.setPersona(persona);
+//
+//		personaRepository.save(persona);
+
+		System.out.println("Peta Bidireccional");
+		Optional<Persona> persona = personaRepository.findById(14L);
+
+		if (persona.isPresent()) {
+
+			Persona persona1 = persona.get();
+			System.out.println(persona1);
+
+		}
+
+		Optional<Coche> coche = cocheRepository.findById(2L);
+
+		if (coche.isPresent()) {
+
+			Coche coche1 = coche.get();
+			System.out.println(coche1);
+			Persona personatmp = coche.get().getPersona();
+			System.out.println(personatmp);
+
+		}
 
 	}
 }

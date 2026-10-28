@@ -1,10 +1,9 @@
 package org.iesch.ad.demoSpring1.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 @Getter
 @Setter
@@ -23,6 +22,8 @@ public class Coche {
     String mdoelo;
     String matricula;
 
-
+    @OneToOne(mappedBy = "coche") // Nombre de la variable que hace el mapeo en la relación padre
+    @ToString.Exclude
+    Persona persona;
 
 }
