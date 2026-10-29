@@ -2,7 +2,7 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QStatusBar, QApplication, QMainWindow, QHBoxLayout, QWidget, QVBoxLayout, QPushButton, QRadioButton, QGroupBox, QGridLayout, QStackedLayout, QTabWidget, QLabel, QLineEdit, QTextEdit, QCheckBox, QToolBar, QDialog
 from PyQt6.QtGui import QPixmap, QAction, QIcon
 
-from cuadrado import Color
+from Ejercicios.EjerciciosRepaso.pt6.cuadrado import Color
 
 
 class OtraVentana(QWidget):
@@ -21,23 +21,32 @@ class MainWindow(QMainWindow): # Creación de una clase
         super().__init__() # LLamo al constructor del padre
         
         self.setWindowTitle("Mi aplicación")
-        self.window = None
-        boton = QPushButton("Pulsa aquí")
-        boton.clicked.connect(self.mostrarVentana)
         
-        self.setCentralWidget(boton)
-         
-    def mostrarVentana(self):
-        if self.window is None:
-            self.window = OtraVentana()
-            self.window.show()
-        else:
-            self.window.close()
-            self.window = None
+        etiqueta = QLabel("Pulsa aquí")
+        
+        # etiqueta.clicked.connect(self.mostrarventana)
+        
+        hlayout = QHBoxLayout()
+        widget = QWidget()
+        
+        etiqueta.setAlignment(Qt.AlignmentFlag.AlignCenter)        
 
+        self.setCentralWidget(etiqueta)
+        
+    def mouseMoveEvent(self, a0):
+        print(f"Arrastrar {a0.position()}")
+    
+    def mousePressEvent(self, a0):
+        print("Presionar")
+        
+    def mouseReleaseEvent(self, a0):
+        print("Soltar")
+    
+    def mouseDoubleClickEvent(self, a0):
+        print(f"Doble click {a0.pos()} {self.cont}")
+        self.cont += 1
         
 app = QApplication([])
 window = MainWindow()
 window.show()
 app.exec()
-

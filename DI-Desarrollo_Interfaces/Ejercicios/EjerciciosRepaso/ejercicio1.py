@@ -45,7 +45,7 @@ class MainWindow(QMainWindow): # Creación de una clase
         widget3.setLayout(hLayout3)
         lFecha = QLabel("Fecha de alta: ")
         self.inputFecha = QDateEdit()
-        self.inputFecha.setCalendarPopup(True)
+        self.inputFecha.setCalendarPopup(True) 
         self.inputFecha.setMinimumDate(QDate(2006,1,1))
                         
         hLayout3.addWidget(lFecha)
