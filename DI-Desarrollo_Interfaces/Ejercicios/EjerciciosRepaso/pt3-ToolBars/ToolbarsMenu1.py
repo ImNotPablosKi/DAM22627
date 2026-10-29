@@ -1,5 +1,5 @@
-from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import QStatusBar, QApplication, QMainWindow, QHBoxLayout, QWidget, QVBoxLayout, QPushButton, QRadioButton, QGroupBox, QGridLayout, QStackedLayout, QTabWidget, QLabel, QLineEdit, QTextEdit, QCheckBox, QToolBar
+from PyQt6.QtCore import Qt, QSize, QDate
+from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox, QStatusBar, QToolBar
 from PyQt6.QtGui import QPixmap, QAction, QIcon
 
 from cuadrado import Color

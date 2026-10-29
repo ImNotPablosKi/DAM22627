@@ -1,21 +1,36 @@
 from builtins import super
 
 from PyQt6.QtCore import Qt, QSize, QDate
+from PyQt6.QtGui import QPixmap, QAction, QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox
 
 class MainWindow(QMainWindow):
-    
-    itemsTierra = ["Bocata Jamón Serrano", "Cocido de Ternera", "Tentempié"]
-    itemsMar = ["Yogur Marinado Griego", "Ensaladilla"]
 
     def __init__(self):
         super().__init__()
+
+        itemsTierra = ["Bocata Jamón Serrano", "Cocido de Ternera", "Tentempié"]
+        itemsMar = ["Yogur Marinado Griego", "Ensaladilla"]
         
         self.setWindowTitle("Repaso general de Interfaces")
         self.setFixedWidth(500)
 
         # Declarar el layout vertical principal
         vLayout = QVBoxLayout()
+
+        # Menu de acciones
+        menu = self.menuBar()
+        menuArchivo = menu.addMenu("Archivo")
+        menuEditar = menu.addMenu("Editar")
+        menuArchivo.addAction(QAction("Guardar", self))
+        menuArchivo.addAction(QAction("Exportar", self))
+        menuExportar = menuEditar.addMenu("Exportar Reserva")
+
+        actionSeguir = QAction(QIcon("Ejercicios/EjerciciosRepaso/img/pajarillo.png"),"Síguenos en Redes!", self)
+
+        menuExportar.addAction(actionSeguir)
+        actionSeguir.triggered.connect(self.seguirEnRedes)
+
         
         # Cada fila tiene un layout horizontal para alinear los objetos dentro, y un widget que lo contenga
         # Fila 1
@@ -23,6 +38,7 @@ class MainWindow(QMainWindow):
         widget1 = QWidget()
         widget1.setLayout(hLayout1)
         nombre = QLabel("Nombre: ")
+        nombre.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.inputNombre = QLineEdit()
         
         hLayout1.addWidget(nombre)
@@ -53,8 +69,10 @@ class MainWindow(QMainWindow):
         labelMenus = QLabel("Menús Disponibles: ")
         self.radioMenuMar = QRadioButton("Mar")
         self.radioMenuTierra = QRadioButton("Tierra")
-        self.radioMenuTierra.clicked.connect(self.mostrarMenus)
-        self.radioMenuMar.clicked.connect(self.mostrarMenus)
+
+        # Lambda es necesario al llamar a una funcion con parámetros, pues se ejecuta al hacer click, no mientras carga la ventana
+        self.radioMenuTierra.clicked.connect(lambda: self.mostrarMenus(itemsTierra))
+        self.radioMenuMar.clicked.connect(lambda: self.mostrarMenus(itemsMar))
         
         hLayout3.addWidget(labelMenus)
         vLayout3Aux.addWidget(self.radioMenuMar)
@@ -133,15 +151,15 @@ class MainWindow(QMainWindow):
         # Mostrar el widget como principal    
         self.setCentralWidget(widgetPrincipal)
 
-    def mostrarMenus(self):
+    def mostrarMenus(self, items):
         
         # Para que se limpie el combo y no se almacene todo el rato cada lista de menús
         self.comboMenus.clear()
         
         if self.radioMenuTierra.isChecked():
-            self.comboMenus.addItems(self.itemsTierra)
+            self.comboMenus.addItems(items)
         else:
-            self.comboMenus.addItems(self.itemsMar)   
+            self.comboMenus.addItems(items)   
             
         # Para que se muestre el placeholder
         self.comboMenus.setCurrentIndex(-1)
@@ -163,13 +181,16 @@ class MainWindow(QMainWindow):
         respuesta = QMessageBox.question(
             self,
             "Confirmar reserva",
-            "¿Desea confirmar la reserva?",
+            "Desea confirmar la reserva?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
 
         if respuesta == QMessageBox.StandardButton.Yes:
             # Si pulsa no, no hace falta hacer nada y el diálogo se cierra
             QMessageBox.information(self, "Reserva", "Reserva confirmada")
+
+    def seguirEnRedes(self):
+        print(f"{self.sender()} SEGUIDO!")        
         
 
 app = QApplication([])
