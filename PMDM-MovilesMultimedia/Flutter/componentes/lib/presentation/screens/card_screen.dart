@@ -1,3 +1,4 @@
+import 'package:componentes/presentation/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CardScreen extends StatelessWidget {
@@ -13,17 +14,9 @@ class CardScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         children: [
-          Card(
-            child: Column(
-              children: [
-                ListTile(
-                  leading: Icon(Icons.photo_album_outlined),
-                  title: Text("Soy un Título!"),
-                  subtitle: Text("Deserunt ex dolor adipisicing in nostrud sit esse."),
-                )
-              ],
-            ),
-          )
+          CardTipo1(),
+          CardTipo2(),
+          
         ],
       )
     );
