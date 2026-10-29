@@ -23,10 +23,11 @@ class MyApp extends StatelessWidget {
         "listView1" :(context) => ListviewScreen(),
         "listView2" :(context) => Listview2Screen(),
         "alert" :(context) => AlertScreen(),
-        "card"  :(context) => CardScreen()
+        "card"  :(context) => CardScreen(),
+        "buttons":(context) => BotonScreen()
       },
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen()),
-      theme: AppTheme.lightTheme,
+      theme: AppTheme( colorSeleccionado: 3 ).getTheme(),
       // theme: AppTheme.lightTheme
     );
   }

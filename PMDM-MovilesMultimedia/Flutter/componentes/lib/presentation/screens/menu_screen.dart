@@ -9,8 +9,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    // Acceder a los parámetros del tema
+    final colors = Theme.of(context).colorScheme;
+
     final menuOptions = <MenuOption>[
 
+      MenuOption(ruta: "buttons", icono: Icons.radio_button_checked_rounded, nombre: "Botones - Buttons"),
       MenuOption(ruta: "listView1", icono: Icons.list_alt, nombre: "ListView Tipo 1 (Uno)"),
       MenuOption(ruta: "listView2", icono: Icons.list, nombre: "ListView Tipo 2 (Dos)"),
       MenuOption(ruta: "alert", icono: Icons.add_alert, nombre: "Alertas - Alerts"),
@@ -24,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (context, i) => ListTile(
-          leading: Icon(menuOptions[i].icono, color: AppTheme.primary,),
+          leading: Icon(menuOptions[i].icono, color: colors.primary,),
           title: Text(menuOptions[i].nombre),
           onTap: () {
 
@@ -36,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             Navigator.pushNamed(context, menuOptions[i].ruta);
 
           },
-          trailing: Icon(Icons.arrow_forward_ios_rounded, color: AppTheme.secondary,),
+          trailing: Icon(Icons.arrow_forward_ios_rounded, color: colors.primary,),
         ),
         separatorBuilder: (_, _) => Divider(),
         itemCount: menuOptions.length
