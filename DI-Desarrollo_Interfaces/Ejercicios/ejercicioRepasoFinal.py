@@ -2,7 +2,7 @@ from builtins import super
 
 from PyQt6.QtCore import Qt, QSize, QDate
 from PyQt6.QtGui import QPixmap, QAction, QIcon
-from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox
+from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QStatusBar, QToolBar, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox
 
 class MainWindow(QMainWindow):
 
@@ -17,6 +17,31 @@ class MainWindow(QMainWindow):
 
         # Declarar el layout vertical principal
         vLayout = QVBoxLayout()
+
+        #Barra de herramientas
+        barra = QToolBar("Barra de herramientas")
+        barra.setIconSize(QSize(16,16))
+        self.addToolBar(barra)
+        
+        boton = QAction(QIcon("Ejercicios/icons/disk.png"),"Guardar archivo",self)
+        boton.setStatusTip("Guardar archivo")
+        barra.addAction(boton)
+        boton.triggered.connect(self.mostrarBtn)
+                
+        boton2 = QAction(QIcon("Ejercicios/icons/document.png"),"Nuevo",self)
+        boton2.setStatusTip("Nuevo archivo")
+        barra.addAction(boton2)
+        boton2.triggered.connect(self.mostrarBtn)
+             
+        boton3 = QAction(QIcon("Ejercicios/icons/application-dock.png"),"Abrir",self)
+        boton3.setStatusTip("Abrir archivo")
+        barra.addAction(boton3)
+        boton3.triggered.connect(self.mostrarBtn)
+        
+        # Separador
+        barra.addSeparator()
+        
+        barra.addWidget(QCheckBox("Check"))
 
         # Menu de acciones
         menu = self.menuBar()
@@ -144,6 +169,9 @@ class MainWindow(QMainWindow):
         widget6.setLayout(hLayout6)
         vLayout.addWidget(widget6)
         
+        # Barra de estado
+        self.setStatusBar(QStatusBar(self))
+        
         # Declarar los elementos principales del programa, el widget que lo contenga todo y su layout vertical
         widgetPrincipal = QWidget()
         widgetPrincipal.setLayout(vLayout)
@@ -190,7 +218,10 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "Reserva", "Reserva confirmada")
 
     def seguirEnRedes(self):
-        print(f"{self.sender()} SEGUIDO!")        
+        print(f"{self.sender()} SEGUIDO!")     
+        
+    def mostrarBtn(self):
+        print(f"{self.sender().text()}")       
         
 
 app = QApplication([])

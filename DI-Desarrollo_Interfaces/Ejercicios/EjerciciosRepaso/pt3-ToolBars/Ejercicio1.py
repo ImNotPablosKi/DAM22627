@@ -17,7 +17,7 @@ class MainWindow(QMainWindow): # Creación de una clase
         barra.setIconSize(QSize(16,16))
         self.addToolBar(barra)
         
-        boton = QAction(QIcon("Ejercicios/icons/bug.png"),"Mi botón",self)
+        boton = QAction(QIcon("Ejercicios/EjerciciosRepaso/icons/bug.png"),"Mi botón",self)
         boton.triggered.connect(self.botonPulsado)
         
         menu = self.menuBar()
