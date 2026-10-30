@@ -2,9 +2,6 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QStatusBar, QApplication, QMainWindow, QHBoxLayout, QWidget, QVBoxLayout, QPushButton, QRadioButton, QGroupBox, QGridLayout, QStackedLayout, QTabWidget, QLabel, QLineEdit, QTextEdit, QCheckBox, QToolBar, QDialog
 from PyQt6.QtGui import QPixmap, QAction, QIcon
 
-from Ejercicios.EjerciciosRepaso.pt5.cuadrado import Color
-
-
 class OtraVentana(QWidget):
     def __init__(self): # Creación de una función
         super().__init__() # LLamo al constructor del padre

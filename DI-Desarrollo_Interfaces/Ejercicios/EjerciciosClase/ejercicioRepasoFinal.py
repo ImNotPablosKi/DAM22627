@@ -2,7 +2,7 @@ from builtins import super
 
 from PyQt6.QtCore import Qt, QSize, QDate
 from PyQt6.QtGui import QPixmap, QAction, QIcon
-from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QStatusBar, QToolBar, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox
+from PyQt6.QtWidgets import QApplication, QMainWindow, QCalendarWidget, QStatusBar, QTabWidget, QToolBar, QWidget, QVBoxLayout, QLabel, QLineEdit, QHBoxLayout, QRadioButton, QCheckBox, QPushButton, QComboBox, QDateEdit, QTextEdit, QMessageBox
 
 class MainWindow(QMainWindow):
 
@@ -14,7 +14,50 @@ class MainWindow(QMainWindow):
         
         self.setWindowTitle("Repaso general de Interfaces")
         self.setFixedWidth(500)
+        
 
+            # #CONFIGURACIONES############
+            # formato = titulo.font() #nos da acceso a los formatos
+            # formato.setPointSize(20) #tamaño
+            # formato.setFamily("Aial") #tipo de letra
+            # formato.setBold(True)
+            # titulo.setFont(formato) #aplicamos todas las configuraciones
+            # titulo.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter) #alinear el texto, de esta manera esta alieado tanto vertical como horizontal
+
+            # imagen.setPixmap(QPixmap("img/avion2.jpg").scaled(200, 100))
+            # imagen.setScaledContents(True)
+
+            # self.nombre.setMaxLength(20)
+            # self.appellido.setMaxLength(20)
+            # self.nombre.setPlaceholderText("Escribe aqui")
+            # self.appellido.setPlaceholderText("Escribe aqui")
+
+            # radio1.setChecked(True)
+            # self.listaCiudades.addItems(["Huesca", "Zaragoza", "Teruel"])
+
+            # salida.setMinimumDate(QDate(2026, 11, 1))
+            # salida.setCalendarPopup(True)
+
+            # self.personas.setRange(1, 10)
+            # self.personas.setSuffix(" pers")
+
+            # self.noches.setRange(1, 7)
+            # self.noches.setValue(1)
+
+            # self.dial.setMinimum(0)
+            # self.dial.setMaximum(20)
+            # self.dial.setValue(0)
+            # self.dial.setNotchesVisible(True)
+
+            # self.boton1.setEnabled(False)
+
+            # self.textoTotal.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter) #alinear el texto, de esta manera esta alieado tanto vertical como horizontal
+            
+            # textoPestaña2.setAlignment(Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter) #alinear el texto, de esta manera esta alieado tanto vertical como horizontal
+
+            # self.textoGrande.setPlaceholderText("Sin reservas")
+        
+        
         # Declarar el layout vertical principal
         vLayout = QVBoxLayout()
 
@@ -42,6 +85,31 @@ class MainWindow(QMainWindow):
         barra.addSeparator()
         
         barra.addWidget(QCheckBox("Check"))
+        
+        #PESTAÑAS
+        pestañas = QTabWidget() #permite organizar diferentes widgets en pestañas
+        pestañas.setTabPosition(QTabWidget.TabPosition.North) #donde colocar las pestañas
+        pestañas.setMovable(True) #si se pueden mover
+
+        widget1 = QWidget()
+        widget2 = QWidget()
+
+        layoutP1 = QVBoxLayout()
+        layoutP2 = QVBoxLayout()
+        
+        layoutP1.addWidget(QLabel("Contenido de la pestaña 1"))
+        layoutP2.addWidget(QLabel("Contenido de la pestaña 2"))
+
+        #meto las plantillas con su contenido
+        widget1.setLayout(layoutP1) #cada widget es como un nuevo menu, al que le añado el contenido
+        widget2.setLayout(layoutP2)
+
+        #añado a la pestaña los menus
+        pestañas.addTab((widget1), "Pestaña 1")
+        pestañas.addTab((widget2), "Pestaña 2")
+
+        # Añadir las pestañas al layout vertical principal
+        vLayout.addWidget(pestañas)
 
         # Menu de acciones
         menu = self.menuBar()
