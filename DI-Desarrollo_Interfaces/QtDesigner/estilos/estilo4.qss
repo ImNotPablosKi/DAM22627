@@ -1,0 +1,40 @@
+QWidget {
+
+    background-color: rgb(56, 56, 56);
+
+}
+
+QLabel {
+
+    background-color: grey;
+    font-weight: bold;
+    font-style: italic;
+    font-size: xx-large;
+
+}
+
+QComboBox {
+
+    background-color: grey;
+
+}
+
+QPushButton#pushButton {
+
+    background-color: grey;
+
+}
+
+QPushButton#pushButton_2 {
+
+    background-color: grey;
+
+}
+
+QPushButton[text="ON"] {
+    background-color: green;
+}
+
+QPushButton[text="OFF"] {
+    background-color: red;
+}

@@ -13,7 +13,7 @@ app = QApplication([])
 # Podemos establecer estilos personalizados y colores
 app.setStyle("Fusion")
 
-with open("QtDesigner\estilos\estilo1.qss", "r") as f:
+with open("QtDesigner\estilos\estilo2.qss", "r") as f:
     app.setStyleSheet(f.read())
 
 window = MainWindow()
