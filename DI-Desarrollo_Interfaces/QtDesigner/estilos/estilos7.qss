@@ -36,3 +36,15 @@ QDial {
     background-color: blue;
 
 }
+
+QSlider::handle {
+
+    background-image: url("QtDesigner/img/icons/animal.png");
+
+}
+
+QComboBox::down-arrow {
+
+    background-image: url("QtDesigner/img/icons/arrow-270-medium.png");
+
+}
