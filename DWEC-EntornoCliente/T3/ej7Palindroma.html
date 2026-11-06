@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // Para hacer de una cadena un regex hay que poner /<<regex>>/g
+    var palabra = prompt("Dame una palabr políndroma").replaceAll(/[., ]/g, "").toLowerCase().split("")
+
+    alert(palabra)
+
+    var es = true
+
+    for (let i = 0; i < palabra.length-i; i++) {
+        if (palabra[i].replace("á","a").replace("é","e").replace("í","i").replace("ó","o").replace("ú","u")
+         != palabra[palabra.length-i-1].replace("á","a").replace("é","e").replace("í","i").replace("ó","o").replace("ú","u")) es = false
+    }
+
+    if(es) {
+        alert("Es políndroma")
+    } else {
+        alert("No es políndroma")
+    }
+
+    alert(palabra)
+</script>
+<body>
+
+</body>
+</html>

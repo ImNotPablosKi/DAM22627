@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 2px solid rgb(0, 179, 27);
+            border-collapse: collapse;
+            text-align: center;
+            padding: 6px;
+        }
+    </style>
+</head>
+<script>
+    let horario=[
+            ["IPPE", "PROY", "IPPE", "AD", "SGE"],
+            ["DI", "SGE", "AD", "AD", "SGE"],
+            ["DI", "SGE", "AD", "AD", "SASP"],
+            ["RECREO","RECREO","RECREO","RECREO","RECREO"],
+            ["DWC", "PMDM", "PMDM", "PROY", "DI"],
+            ["DWC", "PMDM", "PMDM", "PSP", "DI"],
+            ["DWC", "PMDM", "PMDM", "PSP", "DI"]
+        ];
+
+
+    let dias=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"]
+
+    let hora = new Date("1995-12-17T15:45:00");
+
+    document.write("<table>")
+
+    for (let i = 0; i < horario.length+1; i++) {
+        document.write("<tr>")
+        for (let j = 0; j < dias.length+1; j++){
+            if(i==0){
+                if(j==0){
+                    document.write("<th></th>")
+                }else{
+                    document.write(`<th>${dias[j-1]}</th>`)
+                }
+            }else{
+                if(j==0){
+                    var hini
+                    var hfin
+
+                    /*
+                    Hora de inicio (hini) es la hora actual del objeto hora
+                    Recreo (i==4 pq fila 4) suma 15 minutos (15*60*1000 ms)
+                    Si es clase normal sumo 50 minutos
+                    Después de cada clase sumo los 5 minutos de descanso excepto en fila 3 i==3 porque justo después viene el recreo y no hay pausa extra
+                    Se escribe la celda con hini-hfin
+                    */
+
+                    if(i==4){
+                        hini = hora.getHours()+":"+hora.getMinutes()
+                        hora.setMilliseconds(hora.getMilliseconds()+15*60*1000)
+                        hfin = hora.getHours()+":"+hora.getMinutes()
+                    } else {
+                        hini = hora.getHours()+":"+hora.getMinutes()
+                        hora.setMilliseconds(hora.getMilliseconds()+50*60*1000)
+                        hfin = hora.getHours()+":"+hora.getMinutes()
+                        if(i!=3){
+                            hora.setMilliseconds(hora.getMilliseconds()+5*60*1000)
+                        }
+                    }
+                    document.write(`<td>${hini}-${hfin}</td>`)
+                }else{
+                    document.write(`<td>${horario[i-1][j-1]}</td>`)
+                }
+            }
+        }
+        document.write("</tr>")
+    }
+
+    document.write("</table>")
+
+</script>
+<body>
+    <table>
+        <tr></tr>
+    </table>
+
+</body>
+</html>

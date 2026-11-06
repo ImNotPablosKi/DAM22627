@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th, td {
+        border: 2px solid rgb(0, 0, 0);
+        border-collapse: collapse;
+        text-align: center;
+        padding: 6px;
+    }
+    #esquina{
+        background-color: black;
+    }
+</style>
+<body>
+    <script>
+        let tamano = prompt("Tamaño, ej: 3X6")
+        tamano = tamano.toUpperCase()
+
+        let cols = parseInt(tamano.substring(0, tamano.indexOf("X")))
+        let filas = parseInt(tamano.substring(tamano.indexOf("X")+1))
+
+        
+        let rColumnas = []
+        let rFilas
+
+        document.write("<table>")
+
+        for (let i = 0; i < filas; i++) {
+            rFilas = []
+            document.write("<tr>")
+            for (let j = 0; j < cols+1; j++) {
+                if(j<cols){
+                    let numero = Math.round(Math.random()*10+1)
+                    document.write(`<td>${numero}</td>`)
+                    rFilas.push(numero)
+                    if(i==0){
+                        rColumnas.push([numero])
+                    }else{
+                        rColumnas[j].push(numero)
+                    }
+                } else {
+                    document.write(`<td>${rFilas.reduce((na, nc)=>na+nc)}</td>`)
+                }
+            }
+            document.write("</tr>")
+        }
+        document.write("<tr>")
+        for (let i = 0; i < cols; i++) {
+            document.write(`<td>${rColumnas[i].reduce((na, nc)=>na+nc)}</td>`)
+        }
+3
+        document.write("<td id=\"esquina\"></td>")
+  
+
+        document.write("</table>")
+    </script>
+</body>
+</html>

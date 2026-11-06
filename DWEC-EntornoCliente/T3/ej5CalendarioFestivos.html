@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: separate;
+            border-spacing: 6px;
+        }
+
+        td, th {
+            padding: 6px;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+
+<script>
+
+    var festivos = [[1,6],[],[],[17,18,23],[1],[],[],[15],[],[12],[1],[6,8,25]]
+
+    var fechaDia1 = new Date()
+    fechaDia1.setDate(1)
+
+    var mes = prompt("De que mes")
+
+    switch (mes.toLowerCase()) {
+        case "enero":
+            fechaDia1.setMonth(0)
+            break;
+
+        case "febrero":
+            fechaDia1.setMonth(1)
+            break;
+
+        case "marzo":
+            fechaDia1.setMonth(2)
+            break;
+    
+        case "abril":
+            fechaDia1.setMonth(3)
+            break;
+
+        case "mayo":
+            fechaDia1.setMonth(4)
+            break;
+
+        case "junio":
+            fechaDia1.setMonth(5)
+            break;
+
+        case "julio":
+            fechaDia1.setMonth(6)
+            break;
+
+        case "agosto":
+            fechaDia1.setMonth(7)
+            break;
+
+        case "septiembre":
+            fechaDia1.setMonth(8)
+            break;
+
+        case "octubre":
+            fechaDia1.setMonth(9)
+            break;
+
+        case "noviembre":
+            fechaDia1.setMonth(10)
+            break;
+
+        case "diciembre":
+            fechaDia1.setMonth(11)
+            break;
+
+        default:
+            alert("Mes no válido")
+            fechaDia1.setMonth(0)
+            mes="Enero"
+    }
+
+    document.write("<h1>"+`${mes.charAt(0).toUpperCase().concat(mes.substring(1))}`+"</h1>")
+
+    var diaIni = new Date(fechaDia1.getFullYear(), fechaDia1.getMonth(), 1).getDay()-1;
+    var dias = new Date(fechaDia1.getFullYear(), fechaDia1.getMonth()+1, 0).getUTCDate()+1;
+
+    if(diaIni==-1){
+        diaIni=6
+    }
+
+    var filas = Math.ceil((dias+diaIni)/7)
+    var fest = festivos[fechaDia1.getMonth()]
+    var comprobar = festivos[fechaDia1.getMonth()].length!=0
+
+    //alert(diaIni+"-"+dias+"-"+filas+"-"+fest)
+
+    var dia = 1
+
+    document.write("<table><tr>")
+    for (let index = 0; index < 7; index++) {
+        document.write("<th>"+`${["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"][index]}`+"</th>")
+    }
+    document.write("</tr>")
+    for (let i = 0; i < filas; i++) {
+            document.write("<tr>")
+        for (let j = 0; j < 7; j++) {
+            // Si no tengo que poner número escribo uno vacío
+            if (diaIni!=0){
+                diaIni--
+                document.write("<td></td>")
+            } else if (dia>dias){
+                document.write("<td></td>")
+            } else if (comprobar) {
+
+                // Combpruebo que el dia no pertenezca a ninguno del array
+                var rojo = false
+                fest.forEach(a => {
+                    if(a==dia){
+                        rojo = true
+                    }
+                });
+                
+                // Escribo en rojo o no
+                if (rojo){
+                    document.write('<td style="color: red;">'+`${dia}`+"</td>")
+                } else {
+                    document.write("<td>"+`${dia}`+"</td>")
+                }
+                dia++
+            } else {
+                // Si no hace falta comprobar escribo sin más
+                document.write("<td>"+`${dia}`+"</td>")
+                dia++
+            }
+        }
+        document.write("</tr>")
+    }
+    document.write("</table>")
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

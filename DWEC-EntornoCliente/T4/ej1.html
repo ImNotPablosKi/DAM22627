@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button id="botoncico">Generar numero</button>
+<button id="botonborrar">Borrar lista</button>
+<ul id="lista">
+
+</ul>
+<script>
+
+    document.getElementById("botoncico").onclick=()=>{
+
+        var num = parseInt(Math.random()*100+1)
+        document.getElementById("lista").innerHTML += `<li>${num}</li>`
+
+    }
+
+    document.getElementById("botonborrar").onclick = () => {
+
+        document.getElementById("lista").innerHTML = ""
+
+    }
+
+</script>
+</body>
+</html>

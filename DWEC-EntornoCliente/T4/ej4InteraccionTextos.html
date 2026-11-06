@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="background-color: blue; color: white; text-align: center;" class="texto">Texto 1</p>
+    <p style="background-color: blue; color: white; text-align: center;" class="texto">Texto 2</p>
+    <p style="background-color: blue; color: white; text-align: center;" class="texto">Texto 3</p>
+    <center>
+        <button id="reiniciar">Reiniciar</button>
+    </center>
+    <script>
+        Array.from(document.getElementsByClassName("texto")).forEach(e=>{
+            e.onclick = ocultar
+        })
+
+        function ocultar(){
+            if(this.style.color == "blue") this.hidden = true
+            this.style.color = "blue"
+        }
+
+
+        document.getElementById("reiniciar").onclick = () =>{
+            Array.from(document.getElementsByClassName("texto")).forEach(e=>{
+                if(!e.hidden) e.style.color = "white"
+            })
+        }
+    </script>
+</body>
+</html>

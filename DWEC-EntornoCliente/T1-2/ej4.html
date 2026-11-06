@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    let num1 = 4
+    let num2 = 8
+
+    while (true) {
+        let op = prompt("Que quieres hacer? \n1.+\n2.-\n3.*\n4.Salir")
+
+        switch (op) {
+            case "1":
+                console.log(num1+num2)
+                break;
+            case "2":
+                console.log(num1-num2)
+                break;
+            case "3":
+                console.log(num1*num2)
+                break;
+            case "4":
+                console.log("Saliendo...")
+                break;
+            default:
+                console.log("Opción no válida")
+                break;
+        }
+        if(op == 4) break
+    }
+</script>
+
+<body>
+    
+</body>
+
+</html>

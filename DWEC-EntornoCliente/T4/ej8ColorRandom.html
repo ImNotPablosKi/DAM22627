@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.addEventListener("dblclick", (e) => {
+            let color = "#"
+
+            for (let i = 0; i < 6; i++) {
+                let numero = Math.round(Math.random() * 15)
+                console.log(numero)
+                switch (numero) {
+                    case 15:
+                        color = color.concat("f")
+                        break;
+                    case 14:
+                        color = color.concat("e")
+                        break;
+                    case 13:
+                        color = color.concat("d")
+                        break;
+                    case 12:
+                        color = color.concat("c")
+                        break;
+                    case 11:
+                        color = color.concat("b")
+                        break;
+                    case 10:
+                        color = color.concat("a")
+                        break;
+
+                    default:
+                        color = color.concat(numero)
+                        break;
+                }
+            }
+            console.log(color)
+            document.bgColor = color
+        })
+
+    </script>
+</body>
+
+</html>

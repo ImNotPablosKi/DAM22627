@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero = prompt("Dame un numero")
+
+        let numeros = []
+
+        while(numero>0){
+            numeros.push(numero-Math.floor((numero/10))*10)
+            console.log(numero-Math.floor((numero/10))*10)
+            numero=Math.floor(numero/10)
+            console.log(numero)
+        }
+        
+        numeros=numeros.reverse()
+
+        numeros.forEach(n => {
+            if(n/2!=Math.floor(n/2)){
+                document.write(`El número ${n} es impar<br>`)
+            } else {
+                document.write(`El número ${n} es par<br>`)
+            }
+        });
+
+
+    </script>
+</body>
+</html>

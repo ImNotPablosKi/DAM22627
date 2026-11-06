@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+    var lista = []
+
+    while (true){
+        if(lista[lista.length-1]!=0){
+            var num = parseInt(prompt("Dame un numero"))
+            if (Number.isInteger(num)){
+                lista.push(num)
+                continue
+            }
+            alert("No es un numero")
+        } else {
+            lista.pop()
+            break
+        }
+    }
+
+    // Sin reduce
+    var acum = 0
+
+    lista.forEach(a => {
+        acum+=a
+    });
+
+    alert(acum/lista.length)
+
+    // Con reduce
+
+    alert(lista.reduce((a, i)=>i+=a)/lista.length)
+</script>
+
+<body>
+    
+</body>
+
+</html>

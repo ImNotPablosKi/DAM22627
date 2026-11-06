@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+    var fecha = new Date
+
+    var anio = prompt("Que año queires comprobar")
+    fecha.setFullYear(anio)
+    var es = false
+
+    if(anio%4==0){
+        es = true
+        if(anio%100==0 && anio%400!=0){
+            es = false
+        }
+    }
+
+    document.write(`${fecha.getFullYear()} - ${["Es", "No es"][es ? 0: 1]} bisiesto`)
+
+</script>
+<body>
+
+</body>
+</html>

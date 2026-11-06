@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="empezarSaludos">Empezar saludos</button>
+    <button id="pararSaludos">Parar saludos</button>
+    <script>
+        var intervalo
+        
+        document.getElementById("pararSaludos").onclick = () => {
+            clearInterval(intervalo)
+        }
+
+        document.getElementById("empezarSaludos").onclick = () => {
+            intervalo = setInterval(()=>{alert("Hola")}, 2000)
+        }
+        
+    </script>
+</body>
+</html>

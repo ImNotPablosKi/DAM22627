@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border-collapse: collapse;
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="calcular">Calcular</button>
+
+    <script>
+        document.write("<table id=\"tabla\">")
+
+        var num = 0;
+
+        for (let i = 0; i < 100; i++) {
+            document.write("<tr>")
+                for (let j = 0; j < 100; j++) {
+                    document.write(`<td id=\"${num}\"">${++num}</td>`)
+                }
+            document.write("</tr>")
+        }
+
+        document.write("</table>")
+
+        document.getElementById("calcular").onclick=()=>{
+            
+            for (let i = 2; i <= 10000; i++) {
+                //console.log(`---------------${i}----------------`)
+                var divisores = 0
+
+                for (let j = 2; j < i; j++) {
+                    
+                    if(i%j==0){
+                        //console.log(`${i}/${j}`)
+                        divisores++
+                    }
+                    
+                }
+                //console.log(`--${divisores}--`)
+                if (divisores == 1) document.getElementById(i-1).style.backgroundColor = "Yellow"
+
+                
+            }
+
+
+        }
+    </script>
+</body>
+</html>
