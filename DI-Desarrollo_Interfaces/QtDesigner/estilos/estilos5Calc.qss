@@ -1,0 +1,46 @@
+QWidget {
+
+    background-color: #B4B0AF;
+
+}
+
+QPushButton {
+
+    background-color: #FFFFFF;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+QPushButton#btnMas {
+
+    background-color: #0000FE;
+    color: white;
+
+}
+
+QPushButton#btnIgual {
+
+    background-color: #0000FE;
+    color: white;
+
+}
+
+QPushButton#btnBorrar {
+
+    background-color: #0000FE;
+    color: white;
+
+}
+
+QLabel#texto {
+
+    background-color: white;
+    padding: 10px;
+    color: black;
+
+}
