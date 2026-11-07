@@ -20,7 +20,9 @@
         }
     }
 
-    document.write(`${fecha.getFullYear()} - ${["Es", "No es"][es ? 0: 1]} bisiesto`)
+                                            // Si "es" es true se usa el indice 0 (Es),
+                                            // si es false se usa el indice 1 (No es)
+    document.write(`${fecha.getFullYear()} - ${es ? "Es" : "No es"} bisiesto`)
 
 </script>
 <body>

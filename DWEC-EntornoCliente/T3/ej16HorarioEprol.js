@@ -6,9 +6,11 @@ let horario = [
     ["DI", "SGE", "AD", "AD", "SASP"],
     ["RECREO", "RECREO", "RECREO", "RECREO", "RECREO"],
     ["DWC", "PMDM", "PMDM", "PROY", "DI"],
-    ["DWC", "PMDM", "PMDM", "PSP", "DI"],
+    ["RECREO", "RECREO", "RECREO", "RECREO", "RECREO"],
     ["DWC", "PMDM", "PMDM", "PSP", "DI"]
 ];
+
+// ["DWC", "PMDM", "PMDM", "PSP", "DI"]
 
 // Minutos de cada cosa
 const mClase = 50

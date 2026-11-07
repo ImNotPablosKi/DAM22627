@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo RAID</title>
+</head>
+<body>
+    <h1>Calculo RAID</h1>
+
+    <label for="raid">Nivel RAID:</label>
+    <select id="raid"></select>
+
+    <label for="discos">Numero de discos:</label>
+    <select id="discos"></select>
+
+    <label for="tamanio">Tamaño de los discos:</label>
+    <select id="tamanio"></select> TB
+
+    <button id="calcular">Calcular</button>
+
+    <p>Tamaño del conjunto: <span id="resultado">—</span></p>
+
+    <script>
+
+        // Configuración 
+        const NIVELES_RAID = [0, 1];
+        const MIN_DISCOS = 2;
+        const MAX_DISCOS = 8;          
+        const TAMANIOS_TB = [0.5, 1, 1.5, 2];
+
+        // -Referencias al DOM
+        const selRaid = document.getElementById("raid");
+        const selDiscos = document.getElementById("discos");
+        const selTamanio = document.getElementById("tamanio");
+        const boton = document.getElementById("calcular");
+        const resultado = document.getElementById("resultado");
+
+        // Rellenar los select
+        function rellenarSelect(select, valores) {
+            valores.forEach(valor => {
+                const opcion = document.createElement("option");
+                opcion.value = valor;
+                opcion.textContent = valor;
+                select.appendChild(opcion);
+            });
+        }
+
+        rellenarSelect(selRaid, NIVELES_RAID);
+
+        const numerosDiscos = [];
+        for (let n = MIN_DISCOS; n <= MAX_DISCOS; n++) {
+            numerosDiscos.push(n);
+        }
+        rellenarSelect(selDiscos, numerosDiscos);
+
+        rellenarSelect(selTamanio, TAMANIOS_TB);
+        // valor inicial
+        selTamanio.value = 1;
+
+        // Cálculo 
+        function calcular() {
+            const nivel = Number(selRaid.value);
+            const discos = Number(selDiscos.value);
+            // TB por disco
+            const tamanio = Number(selTamanio.value);
+
+            let total;
+            if (nivel === 0) {
+                // RAID 0 se suma la capacidad de todos los discos
+                total = discos * tamanio;
+            } else {
+                // RAID 1 todos los discos guardan lo mismo,
+                // así que solo cuenta la capacidad de uno
+                total = tamanio;
+            }
+
+            resultado.textContent = total + " TB";
+        }
+
+        // Al pulsar el botón se calcula
+        boton.addEventListener("click", calcular);
+
+        // Opcional: borrar el resultado si cambia algún dato
+        [selRaid, selDiscos, selTamanio].forEach(sel => {
+            sel.addEventListener("change", () => {
+                resultado.textContent = "—";
+            });
+        });
+    </script>
+</body>
+</html>

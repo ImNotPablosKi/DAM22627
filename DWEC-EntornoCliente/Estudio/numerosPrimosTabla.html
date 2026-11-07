@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabla primos y cuasiprimos</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #controles {
+            padding: 8px;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #999;
+            text-align: center;
+            font-size: 11px;
+            padding: 2px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="controles">
+        <label for="tipo">Resaltar los 1000 primeros:</label>
+        <select id="tipo">
+            <option value="primos">primos</option>
+            <option value="cuasiprimos">cuasiprimos</option>
+        </select>
+    </div>
+
+    <div id="contenedor"></div>
+
+    <script>
+
+        // ---------- Funciones de comprobación ----------
+
+        function esPrimo(numero) {
+            if (numero < 2) return false;
+
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) return false;
+            }
+
+            return true;
+        }
+
+        // Cuasiprimo: producto de exactamente dos primos (4, 6, 9, 10, 14, 15...)
+        function esCuasiprimo(numero) {
+            let factores = 0;       // factores primos, repetidos incluidos
+            let resto = numero;
+
+            for (let i = 2; i * i <= resto; i++) {
+                while (resto % i === 0) {
+                    factores++;
+                    resto = resto / i;
+                }
+            }
+
+            if (resto > 1) factores++;   // lo que queda es un último primo
+
+            return factores === 2;
+        }
+
+        // ---------- Configuración ----------
+
+        const COLUMNAS = 80;
+        const CANTIDAD = 1000;
+
+        const contenedor = document.getElementById("contenedor");
+        const selectTipo = document.getElementById("tipo");
+
+        // ---------- Construcción de la tabla ----------
+
+        function generarTabla(comprobar) {
+
+            // 1. Buscar los CANTIDAD primeros números que cumplan la condición
+            const resaltados = new Set();
+            let n = 2;
+
+            while (resaltados.size < CANTIDAD) {
+                if (comprobar(n)) resaltados.add(n);
+                n++;
+            }
+
+            const maximo = n - 1;   // último número encontrado
+
+            // 2. Crear la tabla del 1 al máximo
+            const tabla = document.createElement("table");
+            let fila;
+
+            for (let numero = 1; numero <= maximo; numero++) {
+
+                if ((numero - 1) % COLUMNAS === 0) {
+                    fila = document.createElement("tr");
+                    tabla.append(fila);
+                }
+
+                const celda = document.createElement("td");
+                celda.textContent = numero;
+
+                if (resaltados.has(numero)) {
+                    celda.style.backgroundColor = "green";
+                    celda.style.color = "white";
+                }
+
+                fila.append(celda);
+            }
+
+            // 3. Sustituir la tabla anterior por la nueva
+            contenedor.innerHTML = "";
+            contenedor.append(tabla);
+        }
+
+        function actualizar() {
+            if (selectTipo.value === "primos") {
+                generarTabla(esPrimo);
+            } else {
+                generarTabla(esCuasiprimo);
+            }
+        }
+
+        selectTipo.addEventListener("change", actualizar);
+
+        actualizar();   // tabla inicial
+
+    </script>
+</body>
+</html>

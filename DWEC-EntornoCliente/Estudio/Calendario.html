@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-spacing: 6px;
+        }
+
+        th {
+            border: 3px solid black;
+        }
+
+        td, th {
+            padding: 6px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let fecha = new Date()
+        let fechaIni = new Date(fecha.getFullYear(), fecha.getMonth(), 1)
+        let fechaFin = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0)
+
+        // Crear tabla
+        let tabla = document.createElement("table")
+        
+        // Crear cabecera con los dias de la semana
+        for (let i = 0; i < 7; i++) {
+
+            let th = document.createElement("th")
+
+            th.textContent = `${["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"][i]}`
+            
+            tabla.append(th)
+
+        }
+        
+        // Crear fila vacia para separar cabecera de contenido según toque
+        tabla.append(document.createElement("tr"))
+
+        // Calcular cuantos dias vacios hay antes del primer dia del mes
+        let vacios = (fechaIni.getDay() + 6) % 7
+
+        // Calcular cuantas filas hay que crear
+        let filas = (fechaFin.getDate()+vacios)/7
+
+        // Si no es un numero entero, hay que redondear hacia arriba
+        if (filas%1!=0) filas++
+
+        // Redondear hacia abajo para obtener el numero de filas enteras
+        filas = Math.floor(filas)
+
+        // Contador de dias del mes
+        let cont = 0
+
+        // Crear filas y columnas
+        for (let row = 0; row < filas; row++) {
+
+            for (let j = 0; j < 7; j++) {
+                
+                // Crear celda
+                let td = document.createElement("td")
+
+                // Si el contador es menor que el numero de dias del mes y no hay vacios, poner el numero del dia
+                if (cont<fechaFin.getDate()&&vacios==0) {
+                    td.textContent = ++cont
+
+                    tabla.append(td)
+                } else {
+
+                    // Si hay vacios, poner la celda vacia y restar uno al contador de vacios
+                    tabla.append(td)
+                    vacios--
+                }
+
+            }
+
+            // Crear fila vacia para separar filas de contenido según toque
+            tabla.append(document.createElement("tr"))
+        }
+
+        // Añadir tabla al body
+        document.body.append(tabla)
+
+    </script>
+</body>
+</html>
