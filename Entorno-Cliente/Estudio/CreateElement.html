@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  -->
+    <script>
+        let lista = document.createElement("ul")
+
+        for (let index = 1; index <= 12; index++) {
+            
+            let texto = document.createTextNode(`Elemento - ${index}`)
+
+            let elemento = document.createElement("li")
+        
+            elemento.append(texto)
+
+            lista.append(elemento)
+        }
+
+        for (let li of lista.children) {
+            let tono = Math.floor(Math.random() * 360)
+            li.style.backgroundColor = `hsl(${tono}, 100%, 70%)`
+        }
+
+        document.body.append(lista)
+    </script>
+  
+    <!--Sin create element
+    <script>
+        document.write("<ul>")
+
+        for (let index = 1; index <= 12; index++) {
+            
+            document.write(`<li class="elemento"> Elemento - ${index} </li>`)
+
+        }
+
+        for (let li of document.getElementsByClassName("elemento")) {
+            let tono = Math.floor(Math.random() * 360)
+            li.style.backgroundColor = `hsl(${tono}, 100%, 70%)`
+        }
+
+        document.write("</ul>")
+    </script>
+    -->
+</body>
+</html>

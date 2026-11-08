@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabla numeros perfectos</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        p {
+            padding: 0 8px;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #999;
+            text-align: center;
+            font-size: 14px;
+            padding: 6px 0;
+        }
+        .perfecto {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="resumen"></p>
+    <div id="contenedor"></div>
+
+    <script>
+
+        // Un número es perfecto si es igual a la suma de sus divisores propios
+        // (los divisores menores que él mismo). Ej: 6 = 1 + 2 + 3
+        function esPerfecto(numero) {
+            let suma = 0;
+
+            for (let i = 1; i <= numero / 2; i++) {
+                if (numero % i === 0) {
+                    suma += i;
+                }
+            }
+
+            return suma === numero && numero > 1;
+        }
+
+        const LIMITE = 1000;
+        const COLUMNAS = 40;
+
+        const contenedor = document.getElementById("contenedor");
+        const resumen = document.getElementById("resumen");
+
+        const tabla = document.createElement("table");
+        const perfectos = [];
+        let fila;
+
+        for (let numero = 1; numero <= LIMITE; numero++) {
+
+            // Nueva fila cada COLUMNAS celdas
+            if ((numero - 1) % COLUMNAS === 0) {
+                fila = document.createElement("tr");
+                tabla.append(fila);
+            }
+
+            const celda = document.createElement("td");
+            celda.textContent = numero;
+
+            if (esPerfecto(numero)) {
+                celda.classList.add("perfecto");
+                perfectos.push(numero);
+            }
+
+            fila.append(celda);
+        }
+
+        contenedor.append(tabla);
+
+        resumen.textContent = `Números perfectos del 1 al ${LIMITE}: ${perfectos.join(", ")}`;
+
+    </script>
+</body>
+</html>

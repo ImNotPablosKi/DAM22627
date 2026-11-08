@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Numero de discos: 
+    <select id="numero"></select>
+    <br>
+    Capacidad de los discos:
+    <select id="capacidad"></select>
+    <br>
+    Tipo de Raid:
+    <select id="tipo"></select>
+    <br>
+    </p>
+
+    <script>
+        let numero = document.getElementById("numero")
+        rellenar(numero, ["2", "3", "4", "5"])
+        numero.onchange = calcularCapacidadTotal
+
+        let capacidad = document.getElementById("capacidad")
+        rellenar(capacidad, ["512GB", "1024GB", "2048GB", "5120GB"])
+        capacidad.onchange = calcularCapacidadTotal
+
+        let tipo = document.getElementById("tipo")
+        rellenar(tipo, ["RAID 0", "RAID 1", "RAID 5"])
+        tipo.onchange = cambiarTipo
+
+        let total = document.createElement("p")
+        total.textContent = "Capacidad: "
+        document.body.append(total)
+
+        function rellenar(select, valores) {
+            for (let valor of valores) {
+                let opcion = document.createElement("option")
+                opcion.value = valor
+                opcion.textContent = valor
+                select.append(opcion)
+            }
+        }
+
+        function cambiarTipo(){
+            numero.replaceChildren()
+            if(this.value=="RAID 0"){
+                rellenar(numero, ["2", "3", "4", "5"])
+            } else if (this.value=="RAID 1"){
+                rellenar(numero, ["2", "4"])
+            } else if (this.value=="RAID 5"){
+                rellenar(numero, ["3", "4", "5"])
+            }
+            calcularCapacidadTotal()
+        }
+
+
+        function calcularCapacidadTotal(){
+            let cant = parseInt(numero.value)
+            if (tipo.value=="RAID 1"){
+                cant/=2
+            } else if (tipo.value=="RAID 5"){
+                cant--
+            }
+
+            let capacidadInt = parseInt(capacidad.value.substring(0, capacidad.value.length-2))
+
+            total.textContent = `Capacidad: ${capacidadInt*cant}`
+        }
+    </script>
+</body>
+</html>
