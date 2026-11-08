@@ -14,6 +14,7 @@ do {
     var mes = meses.findIndex(m => m === input)
     console.log(mes)
 
+    // Si el mes no es válido me devuelve -1, si es válido me devuelve su índice
     if (mes < 0) {
 
         alert("Introduce un mes válido, zopenco.")

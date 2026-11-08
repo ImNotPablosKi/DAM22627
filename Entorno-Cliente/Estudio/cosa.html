@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repasico</title>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script>
+
+        function esPrimo(num) {
+            if (num < 2) return false;
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+
+            return true;
+        }
+
+        // El segundo parámetro de prompt es el valor por defecto
+        const cantidad = Number(prompt("Introduce la cantidad de numeros primos que quieres sacar:", 10));
+
+        const contenedor = document.getElementById("container");
+
+        const titulo = document.createElement("h2");
+        titulo.append(document.createTextNode("NUMEROS PRIMOS:"));
+        contenedor.append(titulo);
+
+        const lista = document.createElement("ul");
+
+        let encontrados = 0;
+        let numero = 2;
+
+        // Seguir buscando hasta tener "cantidad" primos
+        while (encontrados < cantidad) {
+
+            if (esPrimo(numero)) {
+
+                const item = document.createElement("li");
+                item.append(document.createTextNode(numero));
+                lista.append(item);
+
+                encontrados++;
+            }
+            
+            numero++;
+        }
+
+        contenedor.append(lista);
+
+    </script>
+</body>
+</html>
