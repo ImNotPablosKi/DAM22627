@@ -29,18 +29,28 @@
 
     let hora = new Date("1995-12-17T15:45:00");
 
+    // Crear la tabla
     document.write("<table>")
 
+    // Crear las filas y columnas de la tabla
     for (let i = 0; i < horario.length+1; i++) {
         document.write("<tr>")
+        
+        // Crear las celdas de la fila
         for (let j = 0; j < dias.length+1; j++){
+
+            // Si es la primera fila (i==0) se escriben los días de la semana, si es la primera columna (j==0) se escriben las horas, 
+            // si no se escribe el contenido del horario
             if(i==0){
                 if(j==0){
+                    // Primera celda vacía
                     document.write("<th></th>")
                 }else{
+
                     document.write(`<th>${dias[j-1]}</th>`)
                 }
             }else{
+                // Si es la primera columna (j==0) se escriben las horas
                 if(j==0){
                     var hini
                     var hfin
@@ -67,6 +77,7 @@
                     }
                     document.write(`<td>${hini}-${hfin}</td>`)
                 }else{
+                    // Si no es la primera fila ni la primera columna se escribe el contenido del horario
                     document.write(`<td>${horario[i-1][j-1]}</td>`)
                 }
             }

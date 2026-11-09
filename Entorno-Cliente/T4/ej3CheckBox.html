@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="marcar">Marcar Todos</button>
-    <button id="desmarcar">Desmarcar todo</button>
+    <button onclick="marcarTodos()">Marcar Todos</button>
+    <button onclick="desmarcarTodos()">Desmarcar todo</button>
     <script>
         document.write("<form>")
         for (let i = 0; i < 100; i++) {
@@ -25,6 +25,18 @@
         }
 
         document.getElementById("desmarcar").onclick = () => {
+            Array.from(document.getElementsByClassName("elemento")).forEach(e=>{
+                e.checked = false
+            })
+        }
+
+        function marcarTodos() {
+            Array.from(document.getElementsByClassName("elemento")).forEach(e=>{
+                e.checked = true
+            })
+        }
+
+        function desmarcarTodos() {
             Array.from(document.getElementsByClassName("elemento")).forEach(e=>{
                 e.checked = false
             })
