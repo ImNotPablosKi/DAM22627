@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+        document.addEventListener("keypress", (e)=>{
+            if(letras.indexOf(e.key.toUpperCase())!=-1){
+                for (let i = 0; i < 9999; i++) {
+                    if(letras[i%23]==e.key.toUpperCase()){
+                        document.body.innerHTML += `${e.key.toUpperCase()}${i.toString().padStart(4, "0")}<br>`
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

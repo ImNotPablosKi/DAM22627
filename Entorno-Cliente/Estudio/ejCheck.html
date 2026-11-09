@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="marcar()">Marcar</button>
+    <button onclick="desmarcar()">Desmarcar</button>
+    <br>
+    <script>
+
+        for (let i = 0; i < 100; i++) {
+            let boton = document.createElement("input")
+
+            boton.className = "grupo"
+            boton.type = "checkbox"
+            boton.id = `cb${i}`
+            
+            let etiqueta = document.createElement("label")
+            etiqueta.htmlFor = `cb${i}`
+            etiqueta.textContent = Math.floor(Math.random() * 100 + 1)
+            
+            document.body.append(boton, etiqueta, document.createElement("br"))
+        }
+
+        function marcar(){
+            for (const e of document.getElementsByClassName("grupo")) {
+                e.checked = true
+            }
+        }
+
+        function desmarcar(){
+            for (const e of document.getElementsByClassName("grupo")) {
+                e.checked = false
+            }
+        }
+    </script>
+</body>
+</html>

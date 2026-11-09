@@ -1,0 +1,534 @@
+nav {
+    background-color: rgb(116, 116, 116);
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#indice{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(83, 83, 83);
+}
+
+#indice a{
+    padding: 4px;
+    text-align: center;
+    background-color: rgb(150, 150, 150);
+}
+
+#indice a:hover {
+    background-color: rgb(121, 121, 121);
+    padding: 5px;
+    margin: 4px;
+}
+
+nav a {
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgb(91, 91, 91);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background-color: rgb(81, 81, 81);
+    padding: 9px;
+    margin: 6px;
+}
+
+nav a:active {
+    color: rgb(213, 213, 213);
+}
+
+body {
+    background-color: rgb(19, 19, 19);
+}
+
+
+p {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}
+
+.pre1 {
+    background-color: rgb(76, 76, 76);
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+pre {
+    background-color: rgb(61, 61, 61);
+    padding: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    line-height: 20px;
+    /* Esto lo saco de google y sirve para que me salte de linea en los pre*/
+    white-space: pre-wrap;
+    /* CSS3 */
+    box-shadow: 2px 2px 2px black;
+}
+
+a {
+    color: rgb(163, 163, 163);
+}
+
+.cuadrado {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+div {
+    background-color: rgb(85, 85, 85);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 4%;
+    margin-right: 4%;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    box-shadow: 2px 2px 2px black;
+}
+
+p,
+pre,
+div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}
+
+.tabla {
+    background-color: rgb(100, 100, 100);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: medium;
+}
+
+th,
+table,
+td {
+    border: 5px solid rgb(68, 68, 68);
+    border-collapse: collapse;
+    padding: 5px;
+}
+td:hover, th:hover{
+    background-color: rgb(77, 77, 77);
+
+}
+input {
+    padding: 5px;
+}
+.bform {
+    padding: 5px;
+    font-size: large;
+    background-color: rgb(80, 80, 80);
+    border: 5px solid rgb(29, 29, 29);
+    color: rgb(218, 218, 218);
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.bform:hover {
+    background-color: rgb(95, 95, 95);
+}
+.bform:active {
+    padding: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.pruebaT {
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: normal;
+    text-decoration: dotted;
+    text-indent: 1cm; 
+    text-shadow: 2px 3px 4px black;
+    /*⬇️ No es de textos ⬇️*/
+    background-color: rgb(61, 61, 61);
+    box-shadow: 2px 2px 2px black;
+}
+
+.pruebaE {
+    width: 10%;
+    /*height: 10px;*/
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    border: 3px solid black;
+    background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
+    box-shadow: 2px 2px 2px black;
+}
+.pruebaTr {
+    background-color: rgba(93, 65, 255, 0.3);
+}
+
+.imagenf {
+    background: url(./../img/Maxtben-10--removebg-preview.png);
+    /*background-repeat: no-repeat;*/
+    height: 100px;
+}
+
+.pruebaP{
+    padding: 20px 15px 10px 5px;
+    background-color: rgb(58, 58, 58);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+.pruebaTabla{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla td:nth-child(odd){
+    background-color: rgb(88, 88, 88);
+}
+
+.pruebaTabla2 tr:nth-child(even){
+    background-color: rgb(88, 88, 88);
+}
+
+.pruebaTabla2{
+    background-color: black;
+    display: inline-block;
+}
+
+.PruevaOV{
+    overflow: scroll;
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    border-radius: 0px;
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+}
+
+.PruebaTRA{
+    background-color: black;
+    padding: 25px;
+    width: 25px;
+    transition-duration: 2s;
+    margin: 0px;    
+    margin-top: 20px;
+}
+
+.PruebaTRA:hover{
+    transition-duration: 2s;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    width: 50px;
+    margin: 0px;
+    margin-top: 20px;
+}
+
+
+.disl {
+    display: inline;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    
+}
+
+.disb {
+    display: block;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    width: 30%;
+}
+
+.dislb {
+    display: inline-block;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    width: 20%;
+}
+
+.dislbb {
+    display: inline-block;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/*Box sicing border box <-- explicar*/ 
+
+.posC{
+    border: 5px solid black;
+    position: relative;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+}
+
+div.posC div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 20px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+
+div.posC > .posR{
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    top: 20px;
+    left: 150px;
+    border: 3px solid rgb(37, 37, 37);
+}
+div.posC > .posS{
+    background-color: rgb(0, 0, 0);
+    position: static;
+    border: 3px solid rgb(37, 37, 37);
+}
+div.posC > .posA{
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 60%;
+    top: 50%px;
+    border: 3px solid rgb(37, 37, 37);
+}
+div.posC > .posF{
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    right: -3%;
+    bottom: 20px;
+    padding: 10px;
+    height: 20px;
+    width: 50px;
+    border: 3px solid rgb(37, 37, 37);
+}
+div.posC > .posFl{
+    background-color: rgb(0, 0, 0);
+    float: right;
+    border: 3px solid rgb(37, 37, 37);
+}
+
+.flexC{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
+div.flexC div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+.flexCc{
+    border: 5px solid black;
+
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+div.flexCc div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+.flexCwr{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+div.flexCwr div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+.flexCjf{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+div.flexCjf div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+.flexCai{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 150px;
+}
+div.flexCai div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+    border: 3px solid rgb(37, 37, 37);
+}
+.flexCac{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+div.flexCac div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgb(37, 37, 37);
+}
+
+.gridC{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 50%;
+    grid-template-rows: 70px;
+    grid-auto-rows: 80px;
+    gap: 7px 20px; /*Filas y columnas*/
+}
+
+div.gridC div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    border: 3px solid rgb(37, 37, 37);
+    margin: 0;
+    text-align: center;
+}
+
+.codigo{
+    font-style: italic;
+    padding: 10px;
+}
+
+.gridC2{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    gap: 7px;
+}
+
+.gridC2 div:first-child{
+    background-color: black;
+    grid-row: span 2;
+}
+
+.gridC2 div:nth-child(3){
+    background-color: rgb(86, 40, 0);
+    grid-row: 1 / 3;
+    grid-column-start: 3;
+}
+
+.gridC2 div:nth-child(6){
+    background-color: rgb(107, 107, 0);
+    grid-column-start: 3;
+}
+
+
+div.gridC2 div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    border: 3px solid rgb(37, 37, 37);
+    margin: 0;
+    text-align: center;
+}

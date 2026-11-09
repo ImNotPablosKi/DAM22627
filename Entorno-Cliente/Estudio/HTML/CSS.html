@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destornillador philips</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./img/images.ico">
+</head>
+
+<body>
+    <nav>
+
+        <a href="./index.html">Inicio</a>
+        <a href="./HTML.html">HTML</a>
+        <a href="./CSS.html">CSS</a>
+        <a href="./bootstrap.html">Bootstrap</a>
+
+    </nav>
+    <hr style="width: 90%;">
+    <h1>- CSS -</h1>
+    <hr style="width: 90%;">
+
+    <nav id="indice">
+
+        <h2 style="grid-column: span 2; margin-bottom: 5px;">Indice</h2>
+        <hr style="width: 90%; grid-column: span 2;">
+        <a href="#seleccion">Selección de elementos</a>
+        <a href="#modificacion">Modificación de elementos</a>
+        <a href="#display">Display</a>
+        <a href="#position">Position</a>
+        <a href="#flex">Flex</a>
+        <a href="#grid">Grid</a>
+
+    </nav>
+    <hr style="width: 90%;">
+    <!--//////////////////////////////Vinculación y Selección de elementos//////////////////////////////////-->
+    <h2>Vinculación</h2>
+    <p>
+        Para vincular un archivo se tiene que poner en el head un "link" con un "rel="stylesheet"" y un "href" con la
+        ubicación del archivo css <br> <br>
+        Esto también se puede usar para el icono de la pestaña, para este se usa lo mismo, pero en el "rel" se pone
+        "shortcut icon"
+    </p>
+    <hr style="width: 80%;">
+    <h2 id="seleccion">Selección de elementos</h2>
+    <div>Se le pueden asignar varias clases a un mismo objeto poniendo: class="clase1 clase2"<br>
+        Para indicar que todos los elementos de un mismo tipo tengan un formato especifico se pone:
+        <pre>nav {
+    background-color: rgb(116, 116, 116);
+    padding: 17px;
+    margin: 10px;
+    border-radius: 10px;
+}</pre>
+        Para indicar que los elementos con una clase tengan un formato especifico se pone:
+        <pre>.cuadrado {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}</pre>
+        Para indicar que los elementos con una clase tengan un formato especifico se pone:
+        <pre>#cuadrado {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}</pre>
+        Para indicar que los elementos dentro de un elemento tengan un formato especifico se pone:
+        <pre>nav a {
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgb(91, 91, 91);
+    padding: 10px;
+    border-radius: 8px;
+}</pre>
+        Para indicar que los elementos pegados a otro elemento dentro de ese otro elemento tengan un formato especifico
+        se pone:
+        <pre>nav > a {
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgb(91, 91, 91);
+    padding: 10px;
+    border-radius: 8px;
+}</pre>
+        Para indicar que varios elementos tengan un formato especifico se pone:
+        <pre>p,
+pre,
+div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}</pre>
+        Para indicar que los elementos que estén directamente despues de otros tengan un formato especifico se pone:
+        <pre>h2 + p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}</pre>
+        Para indicar que los elementos que estén despues de otros (da igual la distancia) tengan un formato especifico
+        se pone:
+        <pre>h2 ~ p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}</pre>
+        Se puede usar "*" para seleccionar todo lo que haya <br> <br>
+        <hr style="width: 95%;"> <br>
+        Para referirte a que solo se le aplique el efecto cuando pase el cursor por encima:
+        <pre>a:hover {
+    background-color: rgb(81, 81, 81);
+    padding: 9px;
+    margin: 6px;
+}</pre>
+        Para cuando este clicando:
+        <pre>a:active {
+    color: rgb(213, 213, 213);
+}</pre>
+        Y para cuando se esté escribiendo en ese campo:
+        <pre>input:focus {
+    background-color: red;
+}</pre>
+    </div>
+    <!--//////////////////////////////Modificación de elementos//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2 id="modificacion">Modificación de elementos</h2>
+    <div>
+        Para editar el texto:
+        <pre>.pruebaT {
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: normal;
+    text-decoration: dotted;
+    text-indent: 1cm; 
+    text-shadow: 2px 3px 4px black;
+    /*⬇️ No es de textos ⬇️*/
+    background-color: rgb(61, 61, 61);
+    box-shadow: 2px 2px 2px black;
+}
+</pre>
+        Resultado:
+        <p class="pruebaT">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam eligendi magni at assumenda
+            nisi pariatur ea ad voluptatibus aspernatur, dolorem est esse ipsum aliquam fugit eos dolor illum? Tempora,
+            praesentium.</p>
+        Para editar espacios:
+        <pre>.pruebaE {
+    width: 10%;
+    /*height: 10px;*/
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    border: 3px solid black;
+    background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
+    box-shadow: 2px 2px 2px black;
+}</pre>
+        Resultado:
+        <div class="pruebaE"></div>
+        <b>Extras</b><br><br>
+        Para aplicar transparencia (va de 0 a 1):
+        <pre class="pruebaTr">.pruebaTr {
+    background-color: rgba(93, 65, 255, 0.3);
+}</pre>
+        Para usar una foto de fondo:
+    <pre>.imagenf {
+    background: url(./../img/Maxtben-10--removebg-preview.png);
+    /*background-repeat: no-repeat;*/
+    height: 100px;
+}</pre>
+    <div class="imagenf"></div> <br>
+            Si se quiere usar el "padding" especificando las 4 direcciónes se usar, arria, derecha, abajo e izquierda
+       <pre>.pruebaP{
+    padding: 20px 15px 10px 5px;
+    background-color: rgb(58, 58, 58);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+}</pre>
+       
+            <p class="pruebaP" style="margin-bottom: 10px;">Iker</p>
+        Parahacer que las columnas o filas impares o pares de una tabla tengan un formato distinto se usa:
+        <pre>.pruebaTabla{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla td:nth-child(odd){
+    background-color: rgb(88, 88, 88);
+}
+
+.pruebaTabla2{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla2 tr:nth-child(even){
+    background-color: rgb(88, 88, 88);
+}</pre>
+"odd" para impares y "even" para pares y si se pone un numero solo se afectará esa posición<br>
+Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<br><br>
+*Las grises son las modificadas*<br><br>
+        <table class="pruebaTabla">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="pruebaTabla2">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> <br>
+        Para controlar el exceso de texto en un contentedor se usa "overflow", tiene varios modos
+        <pre>.PruevaOV{
+    overflow: scroll;
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    border-radius: 0px;
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+}</pre>
+        <div class="PruevaOV">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, nobis? Facere magni, laudantium, nam quasi, beatae nesciunt est sit libero voluptatum fuga voluptatem? Deleniti, fuga placeat expedita quos illum laudantium.</div>
+    <br>
+    Para hacer transiciónes se usa "transition-duration"
+    <div class="PruebaTRA"></div><br>
+    <pre class="codigo">.PruebaTRA{
+    background-color: black;
+    padding: 25px;
+    width: 25px;
+    transition-duration: 2s;
+    margin: 0px;    
+    margin-top: 20px;
+}
+
+.PruebaTRA:hover{
+    transition-duration: 2s;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    width: 50px;
+    margin: 0px;
+    margin-top: 20px;
+}</pre>
+    <br>
+    Si a un elemento se le pone "!important" se le aplica siempre
+    </div>
+    <!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Posicionamiento (Display, Position, Grid y Flex)</h2>
+    <div>
+        <h3 id="display">Display</h3>
+        <hr style="width: 80%;">
+        Hay tres tipos importantes: "display: inline;", "display: block;" y "display: inline-block;"<br><br>
+        
+        <b>inline:</b><br>
+        Si se pone “display: inline”, los elementos se mostrarán en estructura de linea, sin separación alguna y solo
+        son textos por lo que no tienen ni altura ni anchura (Estos elementos no podrán tener formatos como width o
+        heigh).<br><br><br>
+        <div class="disl"></div><div class="disl"></div> <div class="disl"></div><br><br><br>
+        
+        <b>block:</b><br>
+        Si se pone  “display: block”, los elementos se mostrarán en estructura de bloque (con sus espacios y sus cosas).<br><br>
+        <div class="disb"></div><div class="disb"></div> <div class="disb"></div><br><br>
+        
+        <b>inline-block:</b><br>
+        Si se pone  “display: inline-block”, los elementos se ponen en linea pero mantienen formato<br><br>
+        <center><div class="dislb"></div><div class="dislb"></div> <div class="dislb"></div></center><br><br>
+        
+        "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento<br><br>
+        <div class="dislbb"></div>
+    </div>
+
+    <div>
+        <h3 id="position">Position</h3>
+        <hr style="width: 80%;">
+        El "static" es el por defecto <br><br>
+        El "relative" mueve el elemento desde su posición nativa <br><br>
+        El "absolute" mueve el elemento desde su padre con posición distinta a estatica <br><br>
+        El "Fixed" pega el elemento a la pantalla en la posición qe le digas, es el que está abajo a la derecha<br><br>
+        "Float" permite definir de que forma se tiene que ordenar, este no es un position, pero lo pongo igualmente<br>
+        <div class="posC">
+            <div class="pos posS">Static</div>
+            <div class="pos">Normal</div>
+            <div class="pos posFl">Float</div>
+            <div class="pos posFl">Float</div>
+            <div class="pos">Normal</div>
+            <div class="pos posR">Relative</div>
+            <div class="pos">Normal</div>
+            <div class="pos posA">Absolute</div>
+            <div class="pos">Normal</div>
+            <div class="pos posF">Fixed</div>
+        </div>
+    </div>
+    <hr style="width: 90%;">
+    <div>
+        <h3 id="flex">Flex</h3>
+        <hr style="width: 80%;">
+        <b><u>Flex normal</u></b><br><br>
+        <i>display: flex; </i><br>
+        <div class="flexC">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+        </div>
+        <b><u>Flex columna invertida</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-direction: column-reverse;</i>
+        <div class="flexCc">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+        </div>
+        <b><u>Flex con wrap</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-wrap: wrap;</i><br>
+        <i>gap: 10px;</i>⬅️(Sirve para determinar el espacio entre elementos)<br>
+        También se puede usar "wrap-reverse" y por defecto está "no-wrap"
+
+        <div class="flexCwr">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+            <div >5</div>
+            <div >6</div>
+        </div>
+        <b>flex-flow sirve para unir estas 2 funciones anteriores</b><br><br>
+        <b><u>Flex con justify-content</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>justify-content: space-evenly;</i><br><br>
+        También se puede usar "flex-start", "flex-end", "space-between", "space-arround" y "space-evenly"  
+
+        <div class="flexCjf">
+            <div >1</div>
+            <div >2</div>
+        </div>
+        <b><u>Flex con align-items</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>justify-content: center;</i><br><br>
+        <i>align-items: end;</i><br><br>
+        También se puede usar "center" , "baseline" ...  
+
+        <div class="flexCai">
+            <div >1</div>
+            <div >2</div>
+        </div>
+        <b><u>Flex con align-items</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-wrap: wrap;</i><br>
+        <i>align-items: center;</i><br>    
+        <i>justify-content: center;</i><br><br>
+        Desordeno los "div" usando "style="order: #;""<br>
+        Uso "style="flex-grow: #"" en cada uno para decir que todos ocupan una fraccion
+
+        <div class="flexCac">
+            <div style="order: 2; flex-grow: 1;">1</div>
+            <div style="order: 1; flex-grow: 2;">2</div>
+            <div style="order: 5; flex-grow: 1;">3</div>
+            <div style="order: 4; flex-grow: 1;">4</div>
+            <div style="order: 3; flex-grow: 3;">5</div>
+            <div style="order: 6; flex-grow: 1;">6</div>
+        </div>
+    </div>
+    <div>
+        <h3 id="grid">Grid</h3>
+        <hr style="width: 80%;">
+
+        Por defecto con solo un "display: grid" solo habilita un conjunto de reglas <br>
+        Aquí juego con "grid-template-columns", "grid-template-rows", "grid-auto-rows" y gap
+
+        <div class="gridC">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+        Código del div padre:
+        <pre class="codigo">
+border: 5px solid black;
+background-color: rgb(66, 66, 66);
+margin-top: 20px;
+margin-bottom: 20px;
+display: grid;
+grid-template-columns: repeat(2, 1fr) 50%;
+grid-template-rows: 70px;
+grid-auto-rows: 80px;
+gap: 7px 20px; /*Filas y columnas*/</pre> 
+
+
+        <hr style="width: 80%;">
+        Aquí juego con el "grid-row", "grid-column-start" y la selección individual de los hijos
+        <div class="gridC2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+        Código del div padre y los hijos modificados:
+        <pre class="codigo">
+.gridC2{
+    border: 5px solid black;
+    background-color: rgb(66, 66, 66);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    gap: 7px;
+}
+
+.gridC2 div:first-child{
+    background-color: black;
+    grid-row: span 2;
+}
+
+.gridC2 div:nth-child(3){
+    background-color: rgb(86, 40, 0);
+    grid-row: 1 / 3;
+    grid-column-start: 3;
+}
+
+.gridC2 div:nth-child(6){
+    background-color: rgb(107, 107, 0);
+    grid-column-start: 3;
+}</pre> 
+    </div>
+
+
+</body>
+
+</html>

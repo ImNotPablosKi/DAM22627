@@ -10,10 +10,10 @@
     <script>
         var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
-        document.addEventListener("keypress", (self)=>{
+        document.addEventListener("keypress", (e)=>{
             document.getElementById("texto").textContent = ""
             for (let i = 0; i < 9999; i++) {
-                if(letras[i%23]==self.key.toUpperCase()){
+                if(letras[i%23]==e.key.toUpperCase()){
                     var ceros = 4 - String(i).length
                     for (let j = 0; j < ceros; j++) {
                         document.getElementById("texto").textContent = document.getElementById("texto").textContent+"0"

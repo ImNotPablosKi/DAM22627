@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let c = prompt("Introduce un carácter:")
+
+        switch (true) {
+            case c >= "0" && c <= "9":
+                alert("Es un número")
+                break
+            case c >= "A" && c <= "Z":
+                alert("Está en mayúsculas")
+                break
+            case "aeiou".includes(c):
+                alert("Es una vocal")
+                break
+            case c >= "a" && c <= "z":
+                alert("Es una consonante")
+                break
+            default:
+                alert("Es otro carácter")
+        }
+    </script>
+</body>
+</html>

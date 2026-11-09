@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destornillador philips</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./img/images.ico">
+</head>
+
+<body>
+    <nav>
+
+        <a href="./index.html">Inicio</a>
+        <a href="./HTML.html">HTML</a>
+        <a href="./CSS.html">CSS</a>
+        <a href="./bootstrap.html">Bootstrap</a>
+
+    </nav>
+    <hr style="width: 90%;">
+    <h1>- HTML -</h1>
+    <hr style="width: 90%;">
+    <!--//////////////////////////////Textos//////////////////////////////////-->
+    <h2>Textos</h2>
+    <p style="margin-top: 5px; text-align: center;">⬇️Etiquetas para modificar/usar textos⬇️</p>
+    <pre class="pre1">- "p" para un parrafo
+- "pre" para hacer un parrafo que tenga en cuenta los espacios
+- <i>"i" para cursiva</i>
+- <em>"em" como el "i"</em>
+- <mark>"mark" para subrallar</mark>
+- <b>"b" para negrita</b>
+- <u>"u" Subralla</u>
+- <ins>"ins" para subrallar también</ins>
+- Se puede usar "span" para agrupar un trozo de texto y <span style="text-decoration: underline dotted;">modificarlo</span>
+- <del>"del" para tachar</del>
+- Para bajar un caracter se usa "sub": H<sub>2</sub>O
+- "br" para hacer un salto de linea 
+- "hr" para hacer una linea como las de arriba
+- "lorem(numero)" para crear textos aleatorios
+- <small>"small" para reducir el tamaño de la letra</small>
+- <big>"big" para aumentar el tamaño de la letra</big>
+<center>- "center" para centrar un texto</center> <!--doctor p ayudo pa esto-->
+
+- Para citar a alguien en un texto se usa "blockquote", se le añade "cite" para decir de quien es, esto no se muestra, y para que se vea de quien es yo pongo un "footer"
+<blockquote cite="Pascuals">Mario, ¿de quez el bocadillo Mario?<footer>   - Pasacuasa -</footer></blockquote>
+- "a" para añadir <a href="https://b42map.com/" target="_blank">enlaces</a>, con "target="_blank"" se abre en una pagina nueva
+<hr style="width: 95%;">
+<img src="./img/Textos.png" alt="Codigico" style="width: 100%;">
+</pre>
+
+    <!--//////////////////////////////Listas//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Listas</h2>
+    <div>
+        Existen 2 tipos, "ul" y "ol"
+        <div class="tabla">
+            <center>- ul -</center>
+            <ul>
+                <li>Las "ul" utilizan signos para separar los puntos</li>
+                <li>Elemento
+                    <ul style="list-style-type: square;">
+                        <li>Se pueden meter listas dentro de listas</li>
+                        <li>Con "style="list-style-type: *tipo*"" se puede cambiar el formato de la lista</li>
+                    </ul>
+                </li>
+                <li>Elemento</li>
+            </ul>
+            <center>- ol -</center>
+            <ol>
+                <li>Las "ol" utilizan un orden ascendente o descendente de elementos de la lista</li>
+                <li>Elemento
+                    <ol type="a">
+                        <li>Con "type" se cambia el tipo de orden</li>
+                        <li>Elemento</li>
+                        <li>Elemento</li>
+                    </ol>
+                </li>
+                <li>Elemento
+                    <ol reversed start="5">
+                        <li>Con "reversed" se cambia el orden a descendente</li>
+                        <li>Y con "start" se puede especificar desde donde empezar</li><!--Thekrey estuvo aki !redes en el chat-->
+                        <li>Elemento</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+        <hr style="width: 95%;">
+        <img src="./img/Listas.png" alt="Codigico" style="width: 100%;">
+    </div>
+    <!--//////////////////////////////Tablas//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Tablas</h2>
+    <div>
+        Para hacer tablas hay que usar la "table" y dentro se usa "tr" para filas, "td" columnas, "th" columnas pero
+        centradas y en negrita. Para escribir varios elementos de una se usa "td*3" y pondrá 3 elementos<br> <br>
+        Para que tengan borde las celdas se tienen que poner en los estilos de la tabla "border-collapse: collapse;" y
+        un "border: 5px solid rgb(68, 68, 68);" al gusto:
+        <div class="tabla">
+            <center>
+                <table>
+                    <tr>
+                        <th>tr ⬇️ th ➡️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                    </tr>
+                    <tr>
+                        <td>td ➡️</td>
+                        <td colspan="3">Se puede usar "colspan" para que ocupe varias columnas</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>td ➡️</td>
+                        <td rowspan="2">Y "rowspan" para filas</td>
+                        <td colspan="2" rowspan="2">Y se pueden combinar</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>td ➡️</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <hr style="width: 95%;">
+        <img src="./img/Tablas.png" alt="Codigico" style="width: 100%;">
+    </div>
+    <!--//////////////////////////////Formularios//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Formularios</h2>
+    <div>
+        Para hacer un formulario se usa "form" a la que se le puede añadir "action", para decirle al servidor que le
+        está mandando y "method", que puede ser "get", que se lo manda sin cifrar y "post" que si lo cifra al mandar los
+        datos introducidos. El "name" dentro de un "input" es el nombre con el que se envia la información de ese input
+        al servidor<br><br>
+        Los formulariosse suelen meter en un "fieldset" que mete el formulario en una caja, y con la etiqueta "legend"
+        (dentro del fieldset) se pone el nombre del formulario<br> <br>
+        Se usa "input" para meter un campo: <br>
+        - El tipo de campo se define en "type". <br>
+        - El texto mostrado en el imput se establece con "placeholder". <br>
+        - El id para ser usado con un label se pone con "id". <br> <br>
+        Se usa "label" para poner un texto para un input y en el "for" se pone para que id. <br><br>
+        Para enviar la información o para reiniciar los campos se usa un "button", con un "type" "submit" o "reset",
+        tiene que estár dentro del form. <br> <br>
+        En los inputs de numeros y alguno que otro como la fecha (en el de la fecha se tiene que poner a-m-d) se puede poner "min" "max" <br><br>
+        Si los "label" están bien establecidos se podrá clicar en estos para referirte al "input".<br>
+        <div class="tabla">
+            <form action="Juanma" method="dialog">
+                <fieldset>
+                    <legend>PruebaBreva</legend>
+                    <label for="nom">Nombre:</label>
+                    <input type="text" id="nom" placeholder="Introduce tu nombre"><br>
+                    <label for="numt">Telefono:</label>
+                    <input type="tel" id="numt" placeholder="123456789" maxlength="9" pattern="[0-9]{9}" size="8"><br>
+                    <br>El de archivos va acompañado con un "accept" para determinar que formato se quiere aceptar 
+                    <br><label for="nom">Archivo:</label>
+                    <input type="file" id="arch" accept=".pdf"><br><br>                   
+                    <label for="chb">Checkbox</label>
+                    <input type="checkbox" id="chb" value="sufro"><br><br>
+                    Para usar los "radio" hay que usar "name" para poner en varios el mismo y hacer así que no se puedan
+                    selecciónar 2 a la vez y le añado un "value" para decir que valor va a mandar si se seleccióna, esto también se usa en los "checkbox"<br><br>
+                    <label for="rb">Radio 1</label>
+                    <input type="radio" id="rb" name="numeros" value="uno"><br>
+                    <label for="rb2">Radio 2</label>
+                    <input type="radio" id="rb2" name="numeros" value="dos"><br>
+                    <label for="rb3">Radio 3</label>
+                    <input type="radio" id="rb3" name="numeros" value="tres"><br><br>
+                    Para hacer desplegables se usa "select" y para agrupar las opciones "optgroup". Si se usa "selected" en una opcion está saldra seleccionada por defecto.<br><br>
+                    En los "select" se puede usar "size" para determinar el tamaño que quieres que tenga <br> <br>
+                    <label for="desp">Despelgable</label>
+                    <select name="desp" id="desp">
+                        <option value="op11">Opcion 1</option>
+                        <option value="op22" selected>Opcion 2</option>
+                        <optgroup label="Grupo1">
+                            <option value="op1">Opcion 1</option>
+                            <option value="op2">Opcion 2</option>
+                        </optgroup>
+                        <optgroup label="Grupo2">
+                            <option value="op111">Opcion 1</option>
+                            <option value="op222">Opcion 2</option>
+                        </optgroup>
+                    </select><br><br>
+                    Se usa "textarea" para crear un campo de texto, se puede indicar su tamaño inicial con "rows" y "cols".<br><br>
+                    <textarea name="fumo" id="txta" cols="30" rows="3" placeholder="Escribe"></textarea><br><br>
+                    Aquí uso "required" que impide enviar el formulario si está vacío.<br><br>
+                    <label for="chkr">Requerido:</label>
+                    <input type="checkbox" required id="chkr">
+                    <center style="margin-top: 25px;"><button class="bform" type="submit">Enviar</button><button class="bform" type="reset">Reiniciar coampos</button></center>
+                </fieldset>
+            </form>
+        </div>
+        <hr style="width: 95%;">
+        <img src="./img/Formularios.png" alt="Codigico" style="width: 100%;">
+    </div>
+</body>
+
+</html>

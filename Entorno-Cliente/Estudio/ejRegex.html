@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="campo">Email:</label>
+    <input type="text" id="campo">
+    <p id="texto">Correcto: </p>
+    <script>
+        let campo = document.getElementById("campo")
+        let texto = document.getElementById("texto")
+        // Para hacer un regex se tiene que poner entre / /
+        let regex = /^\w+@\w+\.\w{2,}$/
+
+        campo.addEventListener("keydown", (tecla) => {
+            if (tecla.key == "Enter") {
+                // Aunque no salga el value si que responde porque es una propiedad del input
+                texto.textContent = "Correcto: "+(regex.test(campo.value)?"Si":"No")
+            }
+        })
+
+        campo.addEventListener("click", (e)=>{
+            campo.value = ""
+        })
+    </script>
+</body>
+</html>
