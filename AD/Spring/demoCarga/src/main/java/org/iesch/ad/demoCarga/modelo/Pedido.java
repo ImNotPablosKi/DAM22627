@@ -1,4 +1,4 @@
-package com.iesch.ad.demoCarga.modelo;
+package org.iesch.ad.demoCarga.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,8 +8,8 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
 @Setter
+@Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
