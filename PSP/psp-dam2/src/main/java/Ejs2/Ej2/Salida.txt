@@ -1,0 +1,19 @@
+Usuario actual: 
+desktop-dus3eao\pc gaming
+Directorio actual: 
+D:\Githu\DAM2\PSP
+Contenido del directorio: 
+ El volumen de la unidad D es Nuevo vol
+ El n£mero de serie del volumen es: 680B-4BE9
+
+ Directorio de D:\Githu\DAM2\PSP
+
+07/10/2026  12:20    <DIR>          .
+06/10/2026  22:41    <DIR>          ..
+21/09/2026  23:22               381 .gitignore
+07/10/2026  12:43    <DIR>          .idea
+07/10/2026  12:20    <DIR>          out
+21/09/2026  23:22               433 PSP.iml
+06/10/2026  22:41    <DIR>          src
+               2 archivos            814 bytes
+               5 dirs  981.112.807.424 bytes libres

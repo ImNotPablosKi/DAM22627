@@ -1,0 +1,30 @@
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>echo Comenzando ejecuci贸n 
+Comenzando ejecuci贸n
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>date /t 
+05/10/2026 
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>time /t 
+16:16
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El nero de serie del volumen es: FE0C-2523
+
+ Directorio de C:\Users\dam2\Desktop\Githu\DAM2\PSP
+
+21/09/2026  16:21    <DIR>          .
+24/09/2026  15:47    <DIR>          ..
+21/09/2026  16:20               352 .gitignore
+05/10/2026  16:16    <DIR>          .idea
+21/09/2026  16:21    <DIR>          out
+21/09/2026  16:20               433 PSP.iml
+01/10/2026  20:22    <DIR>          src
+               2 archivos            785 bytes
+               5 dirs  1.837.415.874.560 bytes libres
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>ipconfiga
+
+C:\Users\dam2\Desktop\Githu\DAM2\PSP>echo Fin de la ejecuci贸n 
+Fin de la ejecuci贸n

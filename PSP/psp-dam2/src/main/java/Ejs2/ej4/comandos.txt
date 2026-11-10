@@ -1,0 +1,5 @@
+echo Inicio
+hostname
+whoami
+ipconfiga
+echo Fin
