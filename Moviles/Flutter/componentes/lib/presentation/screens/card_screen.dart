@@ -15,7 +15,7 @@ class CardScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         children: [
           CardTipo1(),
-          CardTipo2(),
+          CardTipo2(urlImagen: "http://picsum.photos/3000/1500",),
           
         ],
       )

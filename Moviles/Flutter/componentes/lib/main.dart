@@ -24,7 +24,10 @@ class MyApp extends StatelessWidget {
         "listView2" :(context) => Listview2Screen(),
         "alert" :(context) => AlertScreen(),
         "card"  :(context) => CardScreen(),
-        "buttons":(context) => BotonScreen()
+        "buttons":(context) => BotonScreen(),
+        "slider":(context) => SliderScreen(),
+        "snack":(context) => SnackbarScreen(),
+        "animated":(context) => AnimatedScreen(),
       },
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen()),
       theme: AppTheme( colorSeleccionado: 3 ).getTheme(),
