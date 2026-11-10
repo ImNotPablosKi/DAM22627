@@ -12,7 +12,7 @@ class Practica8 extends StatefulWidget {
 
 class _Practica8State extends State<Practica8> {
   List<String> tareas = [
-    'Terminar la práctica de Alberto',
+    'Terminar la maldita práctica de Alberto',
     'Estudiar PSP',
     'Estudiar PSP otra vez',
     'Seguir estudiando PSP',
@@ -34,7 +34,7 @@ class _Practica8State extends State<Practica8> {
           return Dismissible(
             // La key tiene que ser unica
             key: Key(tarea),
-            // Fondo que se ve al deslizar
+            // Fondo que se ve al deslizar pal lado
             background: Container(
               color: Colors.red,
               alignment: Alignment.centerLeft,

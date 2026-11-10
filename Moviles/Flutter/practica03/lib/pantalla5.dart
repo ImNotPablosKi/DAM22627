@@ -60,7 +60,7 @@ class Pantalla5 extends StatelessWidget {
               child: const Text('Ir a pantalla 4'),
             ),
             const SizedBox(height: 20),
-            // Este boton borra toda la pila y vuelve a la pantalla 1
+            // Este boton borra toda la pila y me devuelve a la pantalla 1
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
@@ -73,7 +73,7 @@ class Pantalla5 extends StatelessWidget {
                   (route) => false,
                 );
               },
-              child: const Text('Borrar pila y volver al inicio'),
+              child: const Text('Borrar toda la pila y volver a inicio'),
             ),
           ],
         ),
