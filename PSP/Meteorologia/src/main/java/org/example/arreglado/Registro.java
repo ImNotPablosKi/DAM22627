@@ -1,4 +1,4 @@
-package org.example.apano;
+package org.example.arreglado;
 
 public class Registro {
     String fecha;

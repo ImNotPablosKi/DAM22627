@@ -1,6 +1,5 @@
-package org.example.apano;
+package org.example.arreglado;
 
-import java.sql.Array;
 import java.util.*;
 
 public class TareaGenerarString implements Runnable {

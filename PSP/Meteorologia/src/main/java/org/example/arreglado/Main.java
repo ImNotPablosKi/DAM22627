@@ -1,9 +1,4 @@
-package org.example.apano;
-
-import org.example.apano.MapaSincronizado;
-import org.example.apano.Registro;
-import org.example.apano.TareaGenerarString;
-import org.example.apano.TareaOrganizarRegistros;
+package org.example.arreglado;
 
 import java.io.IOException;
 import java.nio.file.DirectoryIteratorException;
@@ -31,7 +26,7 @@ public class Main {
         List<Path> archivos = new ArrayList<>();
 
         // Guardo las rutas en una lista
-        Path dir = Path.of("src/main/java/org/example/registros");
+        Path dir = Path.of("src/main/java/org/example/items");
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
             for (Path path: stream) {
                 archivos.add(path);
@@ -144,7 +139,7 @@ public class Main {
             System.out.print(s);
         }
         Duration duracion = Duration.between(inicio, Instant.now());
-        System.out.println("\nTiempo: " + duracion.toMillis() + " ms");
+        System.out.println("\nTiempo de ejecución: " + duracion.toMillis() + " ms");
         //System.out.println(tareasRes.size());
 
         // <============================================= PRUEBAS =============================================>
@@ -152,7 +147,7 @@ public class Main {
 
 //        System.out.println("Pruebas");
 
-        System.out.println(archivos.size());
+        System.out.println("Archivos: " + archivos.size());
 //       try {
 //
 //           String str = Files.readString(Path.of("src/main/java/org/example/registros/1a0a0e11")).toString();
