@@ -31,78 +31,49 @@ class ColaTrabajos {
 
     static final int MAX = 5;
 
-    void producir(String nombre, int numero) {
+    synchronized void producir(String nombre, int numero) {
+        try {
 
-        synchronized (this) {
+            while (cola.size() == MAX) {
 
-            try {
-
-                boolean producido = false;
-
-                while (!producido) {
-
-                    if (cola.size() != MAX) {
-
-                        System.out.println(nombre + " va a añadir " + numero);
-                        cola.add(numero);
-                        producido = true;
-                        notifyAll();
-                        Thread.sleep(500);
-
-                    } else {
-
-                        System.out.println(nombre + " espera a producir...");
-                        wait();
-
-                    }
-
-                }
-
-            } catch (InterruptedException e) {
-
-                System.out.println("Producción Interrumpida");
+                System.out.println(nombre + " espera a producir...");
+                wait();
 
             }
+
+            System.out.println(nombre + " va a añadir " + numero);
+            cola.add(numero);
+            notifyAll();
+            Thread.sleep(500);
+
+        } catch (InterruptedException e) {
+
+            System.out.println("Producción Interrumpida");
 
         }
 
     }
 
-    void consumir(String nombre) {
+    synchronized void consumir(String nombre) {
+        try {
 
-        synchronized (this) {
+            while (cola.isEmpty()) {
 
-            try {
-
-                boolean consumido = false;
-
-                while (!consumido) {
-
-                    if (!cola.isEmpty()) {
-
-                        System.out.println(nombre + " consume");
-                        cola.poll();
-                        consumido = true;
-                        notifyAll();
-                        Thread.sleep(800);
-
-                    } else {
-
-                        System.out.println(nombre + " está en espera para poder acceder...");
-                        wait();
-
-                    }
-
-                }
-
-            } catch (InterruptedException e) {
-
-                System.out.println("Consumición interrumpida");
+                System.out.println(nombre + " está en espera para poder acceder...");
+                wait();
 
             }
 
-        }
+            System.out.println(nombre + " consume");
+            cola.poll();
+            notifyAll();
+            Thread.sleep(800);
 
+        } catch (InterruptedException e) {
+
+            System.out.println("Consumición interrumpida");
+
+        }
     }
 
 }

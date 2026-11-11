@@ -1,0 +1,19 @@
+package org.iesch.PracticaTema1PSP.ForkJoin;
+
+import lombok.*;
+import org.iesch.PracticaTema1PSP.ThreadPool.Item;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
+@EqualsAndHashCode
+public class Dato {
+
+    private Integer mes;
+    private Item itemMax;
+    private Item itemMin;
+
+}
