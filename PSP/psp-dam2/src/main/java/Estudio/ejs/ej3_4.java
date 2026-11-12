@@ -23,7 +23,7 @@ class CuentaBancaria {
         }
         synchronized (this) {
             System.out.println("<=======================================================================>");
-            System.out.println(nombre + " - " + (cant >= 0 ? "Ingresa" : "Retira" + ": " + cant));
+            System.out.println(nombre + " - " + (cant >= 0 ? "Ingresa" : "Retira") + ": " + cant);
             System.out.println("Saldo anterior: " + saldo);
             saldo += cant;
             System.out.println("Saldo posterior: " + saldo);

@@ -1,5 +1,6 @@
 package Estudio;
 
+import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -21,7 +22,7 @@ public class ColaBasica {
 
 class Cola {
     final Integer TAMANO = 3;
-    Queue<String> cola = new ArrayBlockingQueue<>(TAMANO);
+    Queue<String> cola = new ArrayDeque<>(TAMANO);
 
     public synchronized void crear(String nombre, String elemento) throws InterruptedException {
 

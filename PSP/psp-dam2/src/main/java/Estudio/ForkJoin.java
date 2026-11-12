@@ -10,6 +10,7 @@ public class ForkJoin {
         ForkJoinPool pool = new ForkJoinPool();
         String res = pool.invoke(tarea);
 
+
         System.out.println(res);
     }
 }
