@@ -8,13 +8,18 @@ class CustomInputField extends StatelessWidget {
   final IconData? icon;
   final IconData? suffixIcon;
 
+  final TextInputType? keyboardType;
+  final bool obscureText;
+
   const new({
     super.key,
     this.hintText,
     this.labelText,
     this.helperText,
     this.icon,
-    this.suffixIcon
+    this.suffixIcon,
+    this.keyboardType,
+    this.obscureText = false
   });
 
   @override
@@ -23,6 +28,8 @@ class CustomInputField extends StatelessWidget {
       // autofocus: true,
       initialValue: "",
       textCapitalization: .words,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       onChanged: (value) {
         print(value);
       },
