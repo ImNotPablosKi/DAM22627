@@ -10,7 +10,7 @@ class Pantalla1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pantalla 1'),
+        title: const Text('1'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),

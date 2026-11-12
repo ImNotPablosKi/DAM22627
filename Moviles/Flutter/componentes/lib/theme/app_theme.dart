@@ -30,6 +30,21 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true,
     ),
+    // InputDecorationTheme
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: TextStyle(color: listaColores[colorSeleccionado]),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: listaColores[colorSeleccionado]),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), topRight: Radius.circular(10))
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: listaColores[colorSeleccionado]),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), topRight: Radius.circular(10))
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), topRight: Radius.circular(10))
+      ),
+    )
   );
 
   // Color primario

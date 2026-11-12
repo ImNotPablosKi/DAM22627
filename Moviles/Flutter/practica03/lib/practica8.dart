@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// He escogido el Dismissible como el widget que presentaré
+// He escogido el Dismissible
 // Permite eliminar o completar un elemento deslizandolo a un lado 
 
 class Practica8 extends StatefulWidget {

@@ -9,8 +9,8 @@ class Pantalla4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pantalla 4'),
-        backgroundColor: Colors.purple,
+        title: const Text('4'),
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
       body: Center(
@@ -19,7 +19,7 @@ class Pantalla4 extends StatelessWidget {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               onPressed: () {
@@ -33,7 +33,7 @@ class Pantalla4 extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               onPressed: () {

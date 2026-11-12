@@ -10,8 +10,8 @@ class Pantalla5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pantalla 5'),
-        backgroundColor: Colors.red,
+        title: const Text('5'),
+        backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
       body: Center(
@@ -20,7 +20,7 @@ class Pantalla5 extends StatelessWidget {
           children: [
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               onPressed: () {
@@ -34,7 +34,7 @@ class Pantalla5 extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               onPressed: () {
@@ -48,7 +48,7 @@ class Pantalla5 extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
               ),
               onPressed: () {
@@ -73,7 +73,7 @@ class Pantalla5 extends StatelessWidget {
                   (route) => false,
                 );
               },
-              child: const Text('Borrar toda la pila y volver a inicio'),
+              child: const Text('Tirar pa atras'),
             ),
           ],
         ),

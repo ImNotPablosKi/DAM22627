@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         "slider":(context) => SliderScreen(),
         "snack":(context) => SnackbarScreen(),
         "animated":(context) => AnimatedScreen(),
+        "formulario":(context) => FormularioScreen(),
       },
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) => HomeScreen()),
       theme: AppTheme( colorSeleccionado: 3 ).getTheme(),
