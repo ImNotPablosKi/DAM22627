@@ -1,0 +1,23 @@
+QPushButton{
+    border-radius: 7px;
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+QPushButton:hover{
+    background-color: rgb(165, 165, 165);
+}
+
+QLabel{
+    background-color: white;
+    padding: 10px;
+    color: black;
+}
+
+#ce, #suma, #igual {
+    background-color: blue;
+    color: white;
+}

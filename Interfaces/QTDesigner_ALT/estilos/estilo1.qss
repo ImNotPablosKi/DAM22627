@@ -1,0 +1,31 @@
+QLabel, QPushButton {
+    font-family: Tahoma;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bolder;
+}
+QPushButton {
+    background-color: rgb(255, 137, 59);
+}
+
+QTextEdit{
+    border: 5px dotted green;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+/*QLineEdit {
+    min-width: 20px;
+    max-width: 30px;
+    min-height: 20px;
+    max-height: 30px;
+}*/
+/*Con el . solo el padre tendrá estas propiedades, sino como todos los widgets heredan de QWidget, tendrian las propiedades*/
+.QWidget {
+    background-color: black;
+}
+/*Para asignarle propiedades a un elemento en especifico*/
+QPushButton#pushButton_2{
+    background-color: green;
+}

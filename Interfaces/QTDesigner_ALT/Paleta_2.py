@@ -1,0 +1,42 @@
+from formulario3 import Ui_MainWindow
+from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt6.QtGui import QPalette, QColor
+from PyQt6.QtCore import Qt
+
+
+class MainWindow(QMainWindow, Ui_MainWindow):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+        self.setupUi(self)
+        self.show()
+
+app = QApplication([]) # Hago un objeto QApplication
+app.setStyle("Fusion") # Cambia el estilo de la interfaz en clase hemos visto "Fusion", "Windows", "Windows vista" y "MacOs"
+
+# Para cambiar los colores de los elementos a la app se usan paletas
+darkPalette = QPalette()
+darkPalette.setColor(QPalette.ColorRole.Window, QColor(53, 53, 53))
+darkPalette.setColor(QPalette.ColorRole.WindowText, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, QColor(127, 127, 127))
+darkPalette.setColor(QPalette.ColorRole.Base, QColor(42, 42, 42))
+darkPalette.setColor(QPalette.ColorRole.AlternateBase, QColor(66, 66, 66))
+darkPalette.setColor(QPalette.ColorRole.ToolTipBase, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorRole.ToolTipText, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorRole.Text, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, QColor(127, 127, 127))
+darkPalette.setColor(QPalette.ColorRole.Dark, QColor(35, 35, 35))
+darkPalette.setColor(QPalette.ColorRole.Shadow, QColor(20, 20, 20))
+darkPalette.setColor(QPalette.ColorRole.Button, QColor(53, 53, 53))
+darkPalette.setColor(QPalette.ColorRole.ButtonText, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, QColor(127, 127, 127))
+darkPalette.setColor(QPalette.ColorRole.BrightText, Qt.GlobalColor.red)
+darkPalette.setColor(QPalette.ColorRole.Link, QColor(42, 130, 218))
+darkPalette.setColor(QPalette.ColorRole.Highlight, QColor(42, 130,218))
+darkPalette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Highlight, QColor(80, 80, 80))
+darkPalette.setColor(QPalette.ColorRole.HighlightedText, Qt.GlobalColor.white)
+darkPalette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.HighlightedText, QColor(127, 127, 127))
+app.setPalette(darkPalette)
+
+window = MainWindow() # Hago un objeto QMainWindow que es una ventana
+
+app.exec() # Para que se quede la ventana ablierta

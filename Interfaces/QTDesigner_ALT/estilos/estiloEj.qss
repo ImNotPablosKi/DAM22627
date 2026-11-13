@@ -1,0 +1,18 @@
+QPushButton{
+    background-color: rgb(209, 136, 0);
+    font-weight: bold;
+    color: white;
+}
+QLineEdit {
+    background-color: white;
+    color: black;
+}
+QSpinBox {
+    background-color: white;
+    color: black;
+}
+#label_4 {
+    padding: 10px;
+    background-color: aqua;
+    color: black;
+}

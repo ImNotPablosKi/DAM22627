@@ -1,0 +1,29 @@
+ Crear carpeta en local y abrirla desde VSC
+ Añadir extensiones
+ ● python
+ ● PYQT Integration
+ ● Qt for Python
+ 
+ Crear entorno virtual (desde la Terminal)
+ (se añadirá contenido a nuestra carpeta)
+ 
+     python -m venv App 
+ 
+ Si da fallo: "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+ 
+     cd .\App\Scripts\
+     .\activate
+     pip install PyQt6
+ 
+ Instalar Qt Designer
+ 
+     pip install PySide6 (instalar Qt Designer)
+     pyside6-designer (ejecutar Qt Designer)
+
+
+Para arrancar pyqt6
+    PYSIDE6-DESIGNER 
+
+Para pasar de un .ui a un .py
+    pyuic6 formulario.ui -o formularioAmano.py 
+

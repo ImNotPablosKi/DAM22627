@@ -1,0 +1,20 @@
+QPushButton{
+    background-color: blue;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+QLabel{
+    font-family: Tahoma;
+    font-size: 12px;
+}
+
+QPushButton:hover{
+    background-color: red;
+}
+
+QPushButton:checked{
+    background-color: green;
+}
+

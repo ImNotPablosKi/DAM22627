@@ -1,0 +1,24 @@
+QPushButton{
+    border-radius: 7px;
+    padding: 10px;
+    background-color: rgb(168, 168, 168);
+}
+
+QPushButton[text = "ON"] {
+    background-color: green;
+}
+
+QPushButton[text = "OFF"] {
+    background-color: red;
+}
+
+QLabel{
+    background-color: rgb(168, 168, 168);
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+}
+
+QComboBox{
+    background-color: rgb(168, 168, 168);
+}
