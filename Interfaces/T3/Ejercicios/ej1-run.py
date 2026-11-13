@@ -2,6 +2,12 @@ import mysql.connector
 from ej1 import Ui_MainWindow
 from PyQt6.QtWidgets import QMainWindow, QApplication
 
+"""
+PLAN: Hacer un contador global (self.actual) que se pasará a cada tupla que recoja en la función cargarDatos()
+Desde la función cargarDatos() llamar a otra para poner los datos en cada elemento de la interfaz a la que le
+pasaré los resultados en el index resultados[actual]... etc TERMINAR EN CASA!!
+"""
+
 # Estos DOS atributos SON NECESARIOS
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -43,7 +49,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     # def insertarDatos(self, provincia, auto, poblacion):
 
-    
+
     
 app = QApplication([])
 ventana = MainWindow()
