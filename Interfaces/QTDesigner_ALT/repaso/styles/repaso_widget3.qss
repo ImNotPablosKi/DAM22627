@@ -1,0 +1,12 @@
+QWidget {
+
+    background-color: tomato;
+
+}
+
+QPushButton#btnAceptar {
+
+    background-color: black;
+    color: aliceblue;
+
+}
