@@ -36,7 +36,7 @@
             const correo = textoCorreo.value.trim();
 
             // Esto no hay que aprendérselo
-            const regexCorreo = /^[a-zA-Z][0-9a-zA-Z_]+(\.{1})?[0-9a-zA-Z_]+(\.{1})?[0-9a-zA-Z_]+(\.{1})?[0-9a-zA-Z_]+\@[a-zA-Z_]+\.(com|[a-z]{3})(\.[a-z]{2})?$/;
+            const regexCorreo = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
             // Comprobar que es un formáto normal antes de nada
             if (!regexCorreo.test(correo)) {
