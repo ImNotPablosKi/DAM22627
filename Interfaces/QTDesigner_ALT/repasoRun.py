@@ -18,6 +18,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Al detectar que ha cambiado el comboBox, llamar a la función
         self.comboBox.currentIndexChanged.connect(self.cambiarEstilo)
 
+        # GENERAL:
+        # Los botones tienen una propiedad checkable, que es necesaria si queremos que sea togglebutton
+        # Click derecho > asignar al grupo de botones par hacer un buttongroup
+        # El buttongroup puede ser exclusive, haciendo que en los togglebutton solo 1 pueda ser checkeeado a la vez
+        
+
     # Cambiar la hoja de estilos referenciada según un evento que ocurra
     # En este caso este evento será la opción del comboBox
     def cambiarEstilo(self, evento):

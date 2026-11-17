@@ -1,0 +1,55 @@
+QWidget {
+
+    background-color: black;
+
+}
+
+QPushButton {
+
+    border: 2px solid white;
+    border-radius: 5px;
+
+}
+
+QLabel {
+
+    font-size: 14px;
+
+}
+
+QPushButton#btnBorrar {
+
+    border: 2px solid red;
+    border-radius: 5px;
+
+}
+
+QPushButton#btnBorrar:hover {
+
+    background-color: rgb(154, 33, 33);
+}
+
+QPushButton:hover {
+
+    background-color: grey;
+
+}
+
+QPushButton:checked {
+
+    background-color: greenyellow;
+
+}
+
+QTextEdit {
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+}
+
+QLineEdit {
+
+    border: 1px solid grey;
+
+}

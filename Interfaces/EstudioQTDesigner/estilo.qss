@@ -1,0 +1,17 @@
+QPushButton{
+    border: 3px solid rgb(172, 172, 172);
+    border-radius: 7px;
+    padding: 5px;
+}
+
+QPushButton:hover{
+    border: 2px solid rgb(172, 172, 172);
+}
+
+QPushButton:pressed{
+    background-color: rgb(122, 122, 122);
+}
+
+QPushButton[text = "Borrar"]{
+    border: 3px solid rgb(255, 64, 64);
+}
