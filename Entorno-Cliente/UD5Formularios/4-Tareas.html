@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mostrar tareas APIREST</title>
+<style>
+    body { font-family: Arial; padding: 20px; }
+    table { border-collapse: collapse; width: 60%; }
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    th { background: #f0f0f0; }
+</style>
+</head>
+<body>
+
+<h2>Mostrar tareas APIREST</h2>
+
+<button id="btnMostrar">Mostrar Datos</button>
+<div id="resultado"></div>
+
+<button onclick="del()">DELETE</button>
+
+<script>
+  const URL = "http://192.168.50.120:8069";
+  let datos = [];
+
+  function actualizarTabla(){
+    let datos = [];  
+    fetch(URL+'/listartareas')
+            .then(res => res.json())
+            .then(json => {
+                datos = json;
+                mostrarTabla(datos);
+            })
+            .catch(err => console.error("Error cargando JSON:", err));
+
+    // Al pulsar el botón mostramos la tabla
+    document.getElementById("btnMostrar").addEventListener("click", () => {
+        mostrarTabla(datos);
+    });
+
+  }
+
+actualizarTabla()
+
+function mostrarTabla(arr) {
+    let html = `
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Tarea</th>
+                <th>Prioridad</th>
+                <th>Urgente</th>
+                <th>Realizada</th>
+                <th>Responsable</th>                
+            </tr>
+    `;
+
+    arr.forEach(item => {
+        html += `
+            <tr>
+                <td>${item[0]}</td>
+                <td>${item[1]}</td>
+                <td>${item[2]}</td>
+                <td>${item[3]}</td>
+                <td>${item[4]}</td>
+                <td>${item[5]}</td>
+            </tr>
+        `;
+    });
+
+    html += "</table>";
+
+    document.getElementById("resultado").innerHTML = html;
+}
+
+function del(){
+
+    idTarea=prompt('Introduce el id de la tarea que deseas borrar')
+
+    fetch(URL+'/gestion/lista_tareas.lista_tareas?data={"id":"'+idTarea+'"}', {
+       method: 'DELETE',
+      })
+      .then(response => {
+       if (!response.ok) {
+          throw new Error('La respuesta de la red no fue correcta');
+        }
+        console.log('Recurso eliminado correctamente');
+        actualizarTabla()
+        })
+        .catch(error => {
+        console.error('Hubo un problema con la solicitud DELETE:', error.message);
+        });
+
+
+    }
+
+
+</script>
+
+</body>
+</html>
