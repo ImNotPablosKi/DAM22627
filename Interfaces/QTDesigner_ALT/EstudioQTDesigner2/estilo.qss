@@ -1,0 +1,19 @@
+#label_4{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+}
+
+QPushButton:checked{
+    background-color: rgb(0, 187, 16);
+    color: black;
+}
+
+QPushButton:pressed{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+QComboBox::down-arrow{
+    background-image: url(fugue-icons-3.5.6/icons/address-book--minus.png);
+}

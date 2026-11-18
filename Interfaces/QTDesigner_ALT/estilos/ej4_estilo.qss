@@ -23,9 +23,11 @@ QTabBar{
 QDial{
     background-color: blue;
 }
+
 QSlider::handle{
     background-image: url(fugue-icons-3.5.6/icons/animal.png);
 }
+
 QComboBox::down-arrow{
     background-image: url(fugue-icons-3.5.6/icons/animal.png);
 }

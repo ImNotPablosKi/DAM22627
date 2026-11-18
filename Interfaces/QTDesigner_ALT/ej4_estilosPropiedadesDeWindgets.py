@@ -20,3 +20,5 @@ with open("estilos/ej4_estilo.qss","r") as f:
 
 window = MainWindow() # Hago un objeto QMainWindow que es una ventana
 app.exec() # Para que se quede la ventana ablierta
+
+# https://doc.qt.io/qtforpython-6/overviews/qtwidgets-stylesheet-reference.html#list-of-pseudo-states
