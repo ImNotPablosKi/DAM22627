@@ -6,64 +6,103 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>300</height>
+    <width>413</width>
+    <height>380</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Escribir</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>[Espacio]</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>Borrar</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QPushButton" name="pushButton">
           <property name="text">
-           <string>Texto:</string>
+           <string>Escribir</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>[Espacio]</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="text">
+           <string>Borrar</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="enabled">
-         <bool>true</bool>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Texto:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Estilos: </string>
         </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>Estilo 1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Estilo 2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Estilo 3</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Estilo 4</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
@@ -75,7 +114,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>365</width>
+     <width>413</width>
      <height>33</height>
     </rect>
    </property>

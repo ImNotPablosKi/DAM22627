@@ -39,7 +39,7 @@ QDial {
 
 QSlider::handle {
 
-    background-image: url("QtDesigner/img/icons/animal.png");
+    background-image: url("img/icons/animal.png");
 
 }
 

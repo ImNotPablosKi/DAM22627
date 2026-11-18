@@ -11,7 +11,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 app = QApplication([])
 
-with open("QtDesigner\estilos\estilos7.qss", "r") as f:
+with open("estilos/estilos7.qss", "r") as f:
     app.setStyleSheet(f.read())
 
 window = MainWindow()

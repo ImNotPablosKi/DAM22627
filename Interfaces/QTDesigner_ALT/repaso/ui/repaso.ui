@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -94,6 +94,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QComboBox" name="comboBox">
+         <property name="currentIndex">
+          <number>-1</number>
+         </property>
+         <property name="placeholderText">
+          <string>Selecciona...</string>
+         </property>
          <item>
           <property name="text">
            <string>Tema1</string>

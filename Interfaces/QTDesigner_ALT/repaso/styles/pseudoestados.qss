@@ -1,0 +1,561 @@
+/* ==========================================================================
+   pseudoestados.qss
+   Ejemplo práctico de los 44 pseudoestados de Qt Style Sheets, con los
+   requisitos que debe cumplir el widget para que cada uno se active.
+
+   Uso en PySide6:
+       with open("pseudoestados.qss", "r", encoding="utf-8") as f:
+           app.setStyleSheet(f.read())
+
+   --------------------------------------------------------------------------
+   SINTAXIS
+   --------------------------------------------------------------------------
+       Widget:estado { ... }                -> cuando se cumple el estado
+       Widget:!estado { ... }               -> negación
+       Widget:estado1:estado2 { ... }       -> AND lógico
+       Widget:estado1, Widget:estado2 {...} -> OR lógico
+       Widget::subcontrol:estado { ... }    -> estado aplicado a un subcontrol
+
+   --------------------------------------------------------------------------
+   NOTAS GENERALES (importantes)
+   --------------------------------------------------------------------------
+   - Un pseudoestado NO se activa por sí solo: depende del estado real del
+     widget (que sea checkable, que tenga hijos, que esté en cierta
+     posición...). En cada apartado se indica la condición ("Requisitos").
+   - Conflictos: si dos reglas del mismo widget tienen la misma especificidad
+     y tocan la misma propiedad, GANA LA ÚLTIMA del fichero. Por eso las
+     reglas de un mismo widget se han escrito tocando propiedades distintas
+     o en orden de prioridad creciente.
+   - Un selector con pseudoestado es más específico que uno sin él.
+   - QPushButton: si solo defines background-color y no defines border, el
+     fondo puede no verse. Por eso hay una regla base con border.
+   - Widgets complejos (QComboBox, QScrollBar, QTreeView::branch...): si
+     personalizas un subcontrol conviene personalizar también los demás.
+   - Widgets propios (subclases de QWidget en Python) necesitan además
+     reimplementar paintEvent con QStyleOption/QStylePainter para que
+     el estilo se aplique.
+   - Si cambias en tiempo de ejecución una propiedad (setFlat, setReadOnly...)
+     y el estilo no se refresca, fuerza el repintado con:
+         widget.style().unpolish(widget); widget.style().polish(widget)
+   - QLabel no soporta :hover.
+   - Algunos pseudoestados dependen del estilo/plataforma/widget concreto
+     (:edit-focus, :maximized, :minimized, :no-frame...). Se indica en cada
+     caso. Prueba siempre en tu plataforma.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   REGLA BASE para los QPushButton de los ejemplos
+   (sin ella, algunos fondos no se dibujan; ver notas generales)
+   ========================================================================== */
+QPushButton {
+    border: 1px solid #9E9E9E;
+    border-radius: 4px;
+    padding: 4px 10px;
+    background-color: #F5F5F5;
+}
+
+
+/* --------------------------------------------------------------------------
+   1. :active
+   Qué hace: el widget está dentro de una ventana ACTIVA (con el foco del
+   sistema operativo). Útil para distinguir ventana activa / inactiva.
+   Requisitos:
+     - El widget debe estar en una ventana visible.
+     - Para ver el efecto en el ejemplo: un item seleccionado
+       (QListWidget con selección habilitada y un item marcado).
+     - Para ver :!active, haz clic en otra ventana de otra aplicación.
+   -------------------------------------------------------------------------- */
+QListWidget::item:selected:active   { background: #1976D2; color: white; }
+QListWidget::item:selected:!active  { background: #9E9E9E; color: white; }
+
+
+/* --------------------------------------------------------------------------
+   2. :adjoins-item
+   Qué hace: (QTreeView::branch) la rama es adyacente a un elemento, o sea,
+   la parte del conector que enlaza directamente con la fila del item.
+   Requisitos:
+     - QTreeView / QTreeWidget con elementos.
+     - rootIsDecorated = True (valor por defecto) para que se dibujen ramas.
+     - El subcontrol ::branch debe estar estilizado (lo hace esta regla).
+   -------------------------------------------------------------------------- */
+QTreeView::branch:adjoins-item { background: #FFE0B2; }
+
+
+/* --------------------------------------------------------------------------
+   3. :alternate
+   Qué hace: se activa en cada fila alterna de una vista.
+   Requisitos:
+     - vista.setAlternatingRowColors(True)
+     - Vista basada en QAbstractItemView (QListView, QTableView, QTreeView
+       y sus variantes Widget).
+     - Al menos 2 filas para que se vea.
+   -------------------------------------------------------------------------- */
+QListView::item:alternate { background: #F0F0F0; }
+
+
+/* --------------------------------------------------------------------------
+   4. :bottom
+   Qué hace: el elemento está posicionado abajo.
+   Requisitos:
+     - QTabWidget.setTabPosition(QTabWidget.TabPosition.South)
+       (o QTabBar.setShape(QTabBar.Shape.RoundedSouth)).
+   -------------------------------------------------------------------------- */
+QTabBar::tab:bottom { border-top: 3px solid #E91E63; padding: 6px 12px; }
+
+
+/* --------------------------------------------------------------------------
+   5. :checked
+   Qué hace: el elemento está marcado.
+   Requisitos:
+     - boton.setCheckable(True)
+     - Que esté marcado: clic del usuario o boton.setChecked(True).
+     - En QCheckBox/QRadioButton/QAction/items checkables ya son
+       "checkables" de forma natural.
+   -------------------------------------------------------------------------- */
+QPushButton:checked { background-color: #4CAF50; color: white; }
+
+
+/* --------------------------------------------------------------------------
+   6. :closable
+   Qué hace: (QDockWidget) el dock se puede cerrar.
+   Requisitos:
+     - dock.setFeatures(...) debe incluir DockWidgetClosable (activo por
+       defecto en un QDockWidget nuevo).
+     - El dock debe estar acoplado o flotando y visible.
+   Nota: con la característica desactivada, el pseudoestado deja de aplicarse.
+   -------------------------------------------------------------------------- */
+QDockWidget:closable { border: 2px solid #43A047; }
+
+
+/* --------------------------------------------------------------------------
+   7. :closed
+   Qué hace: el elemento está en estado cerrado; en árboles, un nodo
+   NO expandido.
+   Requisitos:
+     - QTreeView / QTreeWidget con items que tengan hijos.
+     - El item debe estar colapsado (por defecto lo está;
+       item.setExpanded(False)).
+     - Se combina con :has-children para limitarlo a nodos con hijos.
+   -------------------------------------------------------------------------- */
+QTreeView::branch:closed:has-children { background: #BBDEFB; }
+
+
+/* --------------------------------------------------------------------------
+   8. :default
+   Qué hace: el elemento es el predeterminado (botón por defecto de un
+   diálogo, acción por defecto de un menú).
+   Requisitos:
+     - boton.setDefault(True)
+     - Dentro de un QDialog, el botón con autoDefault (True por defecto)
+       pasa a ser default cuando tiene el foco.
+   -------------------------------------------------------------------------- */
+QPushButton:default { border: 2px solid #1976D2; font-weight: bold; }
+
+
+/* --------------------------------------------------------------------------
+   9. :disabled
+   Qué hace: el elemento está deshabilitado.
+   Requisitos:
+     - widget.setEnabled(False)
+     - También se activa si un widget padre está deshabilitado.
+   Nota: se escribe después de :checked para que gane el aspecto
+   deshabilitado sobre el marcado.
+   -------------------------------------------------------------------------- */
+QPushButton:disabled { background-color: #E0E0E0; color: #9E9E9E; }
+
+
+/* --------------------------------------------------------------------------
+   10. :editable
+   Qué hace: (QComboBox) el combo permite escribir texto.
+   Requisitos:
+     - combo.setEditable(True)
+   -------------------------------------------------------------------------- */
+QComboBox:editable { background: #FFFDE7; }
+
+
+/* --------------------------------------------------------------------------
+   11. :edit-focus
+   Qué hace: el elemento tiene "foco de edición" (QStyle::State_HasEditFocus).
+   Requisitos:
+     - Es un estado propio de la NAVEGACIÓN POR KEYPAD (dispositivos
+       embebidos/móviles con teclado direccional). Qt debe estar compilado
+       con soporte de keypad navigation y estar activado ese modo
+       de navegación.
+     - En un escritorio normal, lo habitual es que NUNCA se active.
+     - Widget que entra en modo edición: QAbstractSpinBox, QSlider...
+   -------------------------------------------------------------------------- */
+QAbstractSpinBox:edit-focus { border: 2px solid #FF9800; }
+
+
+/* --------------------------------------------------------------------------
+   12. :enabled
+   Qué hace: el elemento está habilitado.
+   Requisitos:
+     - widget.setEnabled(True) (valor por defecto).
+   Nota: es el estado normal; úsalo para contrastar con :disabled.
+   -------------------------------------------------------------------------- */
+QLineEdit:enabled { color: #212121; }
+
+
+/* --------------------------------------------------------------------------
+   13. :exclusive
+   Qué hace: (QMenu) el elemento pertenece a un grupo exclusivo de acciones
+   (tipo radio: solo una marcada a la vez).
+   Requisitos:
+     - Las QAction deben ser checkables: accion.setCheckable(True)
+     - Estar en un QActionGroup con exclusive = True
+       (grupo.setExclusive(True), valor por defecto) y añadidas a un QMenu.
+     - Hay que dar tamaño al ::indicator para que se vea.
+   -------------------------------------------------------------------------- */
+QMenu::indicator { width: 12px; height: 12px; }
+QMenu::indicator:exclusive:checked { background: #388E3C; border-radius: 6px; }
+
+
+/* --------------------------------------------------------------------------
+   14. :first
+   Qué hace: el elemento es el primero de una lista (primera pestaña,
+   primera sección de cabecera).
+   Requisitos:
+     - QTabBar / QTabWidget con al menos 1 pestaña.
+     - Si solo hay una, también se aplica :only-one.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:first { border-top-left-radius: 10px; }
+
+
+/* --------------------------------------------------------------------------
+   15. :flat
+   Qué hace: (QPushButton) el botón es plano.
+   Requisitos:
+     - boton.setFlat(True)
+   Nota: el estado plano pone el fondo transparente, pero un borde propio
+   definido por QSS se sigue dibujando si no lo anulas (aquí border: none).
+   -------------------------------------------------------------------------- */
+QPushButton:flat { background: transparent; border: none; text-decoration: underline; }
+
+
+/* --------------------------------------------------------------------------
+   16. :floatable
+   Qué hace: (QDockWidget) el dock puede flotar (desacoplarse).
+   Requisitos:
+     - dock.setFeatures(...) debe incluir DockWidgetFloatable
+       (activo por defecto).
+     - Se aplica a la barra de título del dock acoplado.
+   -------------------------------------------------------------------------- */
+QDockWidget::title:floatable { background: #E3F2FD; }
+
+
+/* --------------------------------------------------------------------------
+   17. :focus
+   Qué hace: el elemento tiene el foco de teclado.
+   Requisitos:
+     - widget.setFocusPolicy(...) distinto de NoFocus (QLineEdit, QComboBox,
+       QPushButton, etc. ya lo aceptan por defecto).
+     - El foco se consigue con clic o con Tab.
+   -------------------------------------------------------------------------- */
+QLineEdit:focus { border: 2px solid #1976D2; background: #E3F2FD; }
+
+
+/* --------------------------------------------------------------------------
+   18. :has-children
+   Qué hace: (QTreeView::branch) el elemento tiene hijos.
+   Requisitos:
+     - QTreeView / QTreeWidget con items que contengan items hijo.
+   -------------------------------------------------------------------------- */
+QTreeView::branch:has-children { background: #C8E6C9; }
+
+
+/* --------------------------------------------------------------------------
+   19. :has-siblings
+   Qué hace: (QTreeView::branch) el elemento tiene hermanos, es decir, hay
+   más nodos del mismo nivel a continuación.
+   Requisitos:
+     - QTreeView / QTreeWidget con al menos 2 items en el mismo nivel
+       (o varios hijos bajo un mismo padre).
+   -------------------------------------------------------------------------- */
+QTreeView::branch:has-siblings:!adjoins-item { background: #FFF9C4; }
+
+
+/* --------------------------------------------------------------------------
+   20. :horizontal
+   Qué hace: el elemento tiene orientación horizontal.
+   Requisitos:
+     - QToolBar con orientación horizontal: toolbar.setOrientation(
+       Qt.Orientation.Horizontal) o colocada en zona superior/inferior
+       de la ventana (por defecto).
+     - También sirve en QSlider, QProgressBar, QScrollBar, QSplitter,
+       QDockWidget (barra de título).
+   -------------------------------------------------------------------------- */
+QToolBar:horizontal { background: #CFD8DC; border-bottom: 2px solid #607D8B; }
+
+
+/* --------------------------------------------------------------------------
+   21. :hover
+   Qué hace: el ratón está sobre el elemento.
+   Requisitos:
+     - Que el puntero esté sobre el widget y el widget esté habilitado.
+     - QLabel NO lo soporta.
+     - Qt activa internamente el seguimiento hover al aplicar QSS.
+   Nota: solo cambia el color del borde para no pisar el fondo de :checked.
+   -------------------------------------------------------------------------- */
+QPushButton:hover { border-color: #1976D2; }
+
+
+/* --------------------------------------------------------------------------
+   22. :indeterminate
+   Qué hace: estado parcial. En QCheckBox tristate, "marcado a medias";
+   en QProgressBar, modo indeterminado.
+   Requisitos:
+     - QCheckBox: checkbox.setTristate(True) y
+       checkbox.setCheckState(Qt.CheckState.PartiallyChecked)
+     - QProgressBar: barra.setRange(0, 0) (rango vacío = indeterminada).
+   -------------------------------------------------------------------------- */
+QCheckBox::indicator { width: 14px; height: 14px; border: 1px solid #757575; }
+QCheckBox::indicator:indeterminate { background: #FFB300; }
+
+
+/* --------------------------------------------------------------------------
+   23. :last
+   Qué hace: el elemento es el último de una lista.
+   Requisitos:
+     - QTabBar / QTabWidget con al menos 1 pestaña.
+     - Con una sola pestaña se aplican a la vez :first, :last y :only-one.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:last { border-top-right-radius: 10px; }
+
+
+/* --------------------------------------------------------------------------
+   24. :left
+   Qué hace: el elemento está posicionado a la izquierda.
+   Requisitos:
+     - QTabWidget.setTabPosition(QTabWidget.TabPosition.West)
+       (o QTabBar.setShape(RoundedWest)).
+   -------------------------------------------------------------------------- */
+QTabBar::tab:left { border-right: 3px solid #9C27B0; padding: 8px 6px; }
+
+
+/* --------------------------------------------------------------------------
+   25. :maximized
+   Qué hace: (QMdiSubWindow) la subventana está maximizada.
+   Requisitos:
+     - Un QMdiArea con QMdiSubWindow dentro (area.addSubWindow(...)).
+     - subventana.showMaximized() o maximizar desde su barra de título.
+     - El soporte de QSS en QMdiSubWindow depende del estilo; el efecto
+       puede ser limitado.
+   -------------------------------------------------------------------------- */
+QMdiSubWindow:maximized { background: #FFF3E0; }
+
+
+/* --------------------------------------------------------------------------
+   26. :middle
+   Qué hace: el elemento está en medio de una lista (ni primero ni último).
+   Requisitos:
+     - QTabBar / QTabWidget con AL MENOS 3 pestañas.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:middle { border-radius: 0px; }
+
+
+/* --------------------------------------------------------------------------
+   27. :minimized
+   Qué hace: (QMdiSubWindow) la subventana está minimizada.
+   Requisitos:
+     - QMdiArea con QMdiSubWindow.
+     - subventana.showMinimized() o minimizar desde su barra de título.
+     - Igual que :maximized, el efecto depende del estilo.
+   -------------------------------------------------------------------------- */
+QMdiSubWindow:minimized { background: #ECEFF1; }
+
+
+/* --------------------------------------------------------------------------
+   28. :movable
+   Qué hace: el elemento se puede mover (barra de herramientas o dock).
+   Requisitos:
+     - QToolBar: toolbar.setMovable(True) (valor por defecto).
+     - QDockWidget: features con DockWidgetMovable (por defecto).
+   -------------------------------------------------------------------------- */
+QToolBar:movable { border: 1px dashed #607D8B; }
+
+
+/* --------------------------------------------------------------------------
+   29. :no-frame
+   Qué hace: el elemento no tiene marco.
+   Requisitos:
+     - QLineEdit.setFrame(False) (también QComboBox.setFrame(False) y
+       QAbstractSpinBox.setFrame(False)).
+   Nota: en ese caso el QSS se aplica pero sin el marco nativo.
+   -------------------------------------------------------------------------- */
+QLineEdit:no-frame { border: none; border-bottom: 1px solid #757575; background: transparent; }
+
+
+/* --------------------------------------------------------------------------
+   30. :non-exclusive
+   Qué hace: (QMenu) el elemento pertenece a un grupo NO exclusivo,
+   es decir, funciona como casilla de verificación.
+   Requisitos:
+     - Acciones checkables: accion.setCheckable(True)
+     - Sin QActionGroup, o con grupo.setExclusive(False).
+   -------------------------------------------------------------------------- */
+QMenu::indicator:non-exclusive:checked { background: #1976D2; }
+
+
+/* --------------------------------------------------------------------------
+   31. :off
+   Qué hace: los elementos que se pueden activar/desactivar están en
+   estado "off" (desactivado).
+   Requisitos:
+     - Elemento conmutable: QCheckBox, botón checkable, etc.
+     - Estado desmarcado (setChecked(False)).
+   Nota: :off/:on equivalen en la práctica a :unchecked/:checked. Elige un
+   par u otro sobre el mismo elemento; en este fichero :off/:on se usan
+   con QCheckBox y :unchecked/:checked con QRadioButton.
+   -------------------------------------------------------------------------- */
+QCheckBox::indicator:off { background: #FFCDD2; }
+
+
+/* --------------------------------------------------------------------------
+   32. :on
+   Qué hace: los elementos que se pueden activar/desactivar están en
+   estado "on" (activado).
+   Requisitos:
+     - Elemento conmutable en estado marcado (setChecked(True)).
+   -------------------------------------------------------------------------- */
+QCheckBox::indicator:on { background: #C8E6C9; }
+
+
+/* --------------------------------------------------------------------------
+   33. :only-one
+   Qué hace: el elemento es el único de su lista.
+   Requisitos:
+     - QTabBar / QTabWidget con EXACTAMENTE 1 pestaña.
+   Nota: se escribe después de :first y :last para que su border-radius
+   prevalezca sobre los de esos pseudoestados.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:only-one { border-radius: 10px; }
+
+
+/* --------------------------------------------------------------------------
+   34. :open
+   Qué hace: el elemento está abierto: botón con menú desplegado, combo con
+   popup abierto o nodo de árbol expandido.
+   Requisitos:
+     - QPushButton: boton.setMenu(menu) y el menú tiene que estar
+       desplegado (el usuario ha hecho clic).
+     - QTreeView: item.setExpanded(True) en un item con hijos.
+   -------------------------------------------------------------------------- */
+QPushButton:open { background-color: #FB8C00; color: white; }
+QTreeView::branch:open:has-children { background: #A5D6A7; }
+
+
+/* --------------------------------------------------------------------------
+   35. :next-selected
+   Qué hace: el elemento SIGUIENTE (p. ej. la pestaña de la derecha) está
+   seleccionado.
+   Requisitos:
+     - QTabBar / QTabWidget con al menos 2 pestañas.
+     - Una pestaña seleccionada que no sea la primera; la pestaña inmediata
+       anterior recibe :next-selected.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:next-selected { margin-right: 4px; }
+
+
+/* --------------------------------------------------------------------------
+   36. :pressed
+   Qué hace: el elemento se está presionando con el ratón.
+   Requisitos:
+     - Mantener el botón del ratón pulsado sobre el widget.
+   Nota: se escribe después de :hover, :checked y :default para ganar
+   mientras se pulsa.
+   -------------------------------------------------------------------------- */
+QPushButton:pressed { background-color: #90CAF9; padding-top: 6px; }
+
+
+/* --------------------------------------------------------------------------
+   37. :previous-selected
+   Qué hace: el elemento ANTERIOR (p. ej. la pestaña de la izquierda) está
+   seleccionado.
+   Requisitos:
+     - QTabBar / QTabWidget con al menos 2 pestañas.
+     - Una pestaña seleccionada que no sea la última; la pestaña inmediata
+       posterior recibe :previous-selected.
+   -------------------------------------------------------------------------- */
+QTabBar::tab:previous-selected { margin-left: 4px; }
+
+
+/* --------------------------------------------------------------------------
+   38. :read-only
+   Qué hace: el elemento es de solo lectura.
+   Requisitos:
+     - lineedit.setReadOnly(True)
+     - También aplica a QTextEdit, QPlainTextEdit y QAbstractSpinBox.
+   -------------------------------------------------------------------------- */
+QLineEdit:read-only { background: #EEEEEE; color: #616161; }
+
+
+/* --------------------------------------------------------------------------
+   39. :right
+   Qué hace: el elemento está posicionado a la derecha.
+   Requisitos:
+     - QTabWidget.setTabPosition(QTabWidget.TabPosition.East)
+       (o QTabBar.setShape(RoundedEast)).
+   -------------------------------------------------------------------------- */
+QTabBar::tab:right { border-left: 3px solid #009688; padding: 8px 6px; }
+
+
+/* --------------------------------------------------------------------------
+   40. :selected
+   Qué hace: el elemento está seleccionado.
+   Requisitos:
+     - Pestaña: es la pestaña activa (setCurrentIndex).
+     - Vistas de items: selectionMode distinto de NoSelection y un item
+       seleccionado.
+     - Menús: el item resaltado con ratón/teclado (hover o flechas).
+   -------------------------------------------------------------------------- */
+QTabBar::tab:selected { background: #FFFFFF; font-weight: bold; }
+QMenu::item:selected  { background: #BBDEFB; color: black; }
+
+
+/* --------------------------------------------------------------------------
+   41. :top
+   Qué hace: el elemento está posicionado arriba.
+   Requisitos:
+     - QTabWidget.setTabPosition(QTabWidget.TabPosition.North)
+       (valor por defecto).
+   -------------------------------------------------------------------------- */
+QTabBar::tab:top { border-bottom: 3px solid #3F51B5; padding: 6px 12px; }
+
+
+/* --------------------------------------------------------------------------
+   42. :unchecked
+   Qué hace: el elemento no está marcado.
+   Requisitos:
+     - QRadioButton / QCheckBox / botón checkable sin marcar.
+     - Hay que dar tamaño al ::indicator para que se vea el indicador
+       estilizado.
+   -------------------------------------------------------------------------- */
+QRadioButton::indicator { width: 14px; height: 14px; border-radius: 7px; border: 1px solid #757575; }
+QRadioButton::indicator:unchecked { background: white; }
+QRadioButton::indicator:checked   { background: #4CAF50; }
+
+
+/* --------------------------------------------------------------------------
+   43. :vertical
+   Qué hace: el elemento tiene orientación vertical.
+   Requisitos:
+     - QToolBar: toolbar.setOrientation(Qt.Orientation.Vertical) o colocada
+       en la zona izquierda/derecha de la ventana.
+     - También sirve en QSlider, QProgressBar, QScrollBar, QSplitter,
+       QDockWidget (barra de título vertical).
+   -------------------------------------------------------------------------- */
+QToolBar:vertical { background: #D7CCC8; border-right: 2px solid #795548; }
+
+
+/* --------------------------------------------------------------------------
+   44. :window
+   Qué hace: el widget es una ventana, no un widget hijo.
+   Requisitos:
+     - Widget de nivel superior: sin padre, o con el flag Qt.Window
+       (QMainWindow, QDialog y QWidget sin padre).
+   Nota: afecta a TODAS las ventanas; para una concreta usa su objectName,
+   por ejemplo QWidget#miVentana:window.
+   -------------------------------------------------------------------------- */
+QWidget:window { background-color: #FAFAFA; }

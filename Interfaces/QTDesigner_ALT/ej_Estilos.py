@@ -9,7 +9,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.show()
 
 app = QApplication([]) # Hago un objeto QApplication
-# app.setStyle("Fusion") # Cambia el estilo de la interfaz en clase hemos visto "Fusion" y "Windows"
+# app.setStyle("Fusion") # Cambia el estilo de la interfaz en clase hemos visto "Fusion" y "Windows", "Windows vista" y "MacOs"
 
 with open("estilos/ej2_estilo.qss","r") as f:
     app.setStyleSheet(f.read())

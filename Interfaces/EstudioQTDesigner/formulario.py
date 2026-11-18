@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'formulario.ui'
+# Form implementation generated from reading ui file '.\formulario.ui'
 #
 # Created by: PyQt6 UI code generator 6.12.1
 #
@@ -12,10 +12,12 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(365, 300)
+        MainWindow.resize(413, 380)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
@@ -46,9 +48,24 @@ class Ui_MainWindow(object):
         self.textEdit.setObjectName("textEdit")
         self.verticalLayout_2.addWidget(self.textEdit)
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_2)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_3.addWidget(self.label_2)
+        self.comboBox = QtWidgets.QComboBox(parent=self.centralwidget)
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.horizontalLayout_3.addWidget(self.comboBox)
+        self.horizontalLayout_3.setStretch(1, 1)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 365, 33))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 413, 33))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -65,3 +82,8 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "[Espacio]"))
         self.pushButton_3.setText(_translate("MainWindow", "Borrar"))
         self.label.setText(_translate("MainWindow", "Texto:"))
+        self.label_2.setText(_translate("MainWindow", "Estilos: "))
+        self.comboBox.setItemText(0, _translate("MainWindow", "Estilo 1"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "Estilo 2"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "Estilo 3"))
+        self.comboBox.setItemText(3, _translate("MainWindow", "Estilo 4"))
