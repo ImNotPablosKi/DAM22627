@@ -20,7 +20,7 @@ function cambiarContenido() {
     
     if (provinciaActual === "teruel") {
 
-        ciudadesTeruel.forEach(ciudad =>{
+        ciudadesTeruel.forEach(ciudad => {
 
             // Si no es alcañiz que se rellene de manera estándar
             // En caso contrario que Alcañiz sea la opción seleccionada por defecto
