@@ -14,7 +14,7 @@ public class SocketBasico {
             Thread cliente = new Thread(new ClienteBasico());
             cliente.start();
 
-            // Hago el buffer que se asigna al paquete recibirá el paquete del cliente
+            // Hago el buffer que se asigna al paquete que recibirá el cliente
             byte[] buffer = new byte[1024];
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
@@ -40,7 +40,7 @@ class ClienteBasico implements Runnable {
             Thread.sleep(1000);
 
             // Hago el mensaje
-            byte[] mensaje = "Hola lozano".getBytes();
+            byte[] mensaje = "yo cuando uhh ... :P".getBytes();
 
             // Construyo el paquete con la ip y el puerto del server además del paquete a enviar y lo envío mediante el socket que tiene un puerto temporal
             DatagramPacket paquete = new DatagramPacket(mensaje, mensaje.length, InetAddress.getByName("127.0.0.1"), 5324);
