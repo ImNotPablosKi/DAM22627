@@ -39,11 +39,20 @@ public class EjerciciosConsultasApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		System.out.println("\n ============ RESULTADOS ============\n");
-		System.out.println("= EJ1 =");
-		System.out.println(servicio.clientesPorColor("Maroon"));
+		System.out.println("= EJ1 Cliente con un coche de cierto color =");
+		servicio.clientesPorColor("maroon").forEach(c -> imprimirCliente(c));
 
-		System.out.println("= EJ2 =");
-		System.out.println(servicio.clientesPorPrecioMayorQue(1500));
+		System.out.println("= EJ2 Clientes con un coche que cueste más de X precio =");
+		servicio.clientesPorPrecioMayorQue(1500).forEach(c -> imprimirCliente(c));
+
+		System.out.println("= EJ3 Cliente con más coches =");
+		imprimirCliente(servicio.clienteConMasCoches());
+
+		System.out.println("= EJ 4 Coche con menos revisiones =");
+		imprimirCoche(servicio.cocheConMenosRevisiones());
+
+		System.out.println("= EJ 5 Obtener de cada coche su matrícula y el número de revisiones q ha tenido =");
+		imprimirLista(servicio.cochesJuntoARevisiones(), System.out::println);
 
 //		Scanner teclado = new Scanner(System.in);
 //		while (true) {

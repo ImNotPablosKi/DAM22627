@@ -36,7 +36,7 @@ public class Coche {
                 ", modelo='" + modelo + '\'' +
                 ", color='" + color + '\'' +
                 ", precio=" + precio +
-                ", cliente=" + cliente +
+                ", cliente=" + cliente.getNombre() +
                 ", revisiones=" + revisiones +
                 '}';
     }

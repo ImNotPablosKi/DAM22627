@@ -21,6 +21,20 @@ public class Cliente {
     String nombre;
     String direccion;
     String ciudad;
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nif='" + nif + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", coches=" + coches +
+                '}';
+    }
+
     String telefono;
 
     // Este campo apunta al campo cliente de la clase coche
