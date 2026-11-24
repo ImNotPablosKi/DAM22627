@@ -3,6 +3,7 @@ package com.example.EjerciciosConsultas.servicio;
 import com.example.EjerciciosConsultas.modelo.Cliente;
 import com.example.EjerciciosConsultas.repositorio.ClienteRepositorio;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.ls.LSException;
 
@@ -12,7 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ConsultasServicio {
 
-    private final ClienteRepositorio clienteRepository;
+    @Autowired
+    private ClienteRepositorio clienteRepository;
 
     public List<Cliente> clientesPorColor(String color) {
 
