@@ -18,6 +18,9 @@ class MainWindow(QMainWindow):
 
             self.cargarDatos()
             self.cargarPrimerDato()
+
+            
+
         except mysql.connector.Error as error:
             print(error)    
 

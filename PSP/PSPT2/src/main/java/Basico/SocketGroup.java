@@ -1,4 +1,4 @@
-package T2.Basico;
+package Basico;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
