@@ -23,6 +23,8 @@ public class DemoSpringDataMongoProductosApplication implements CommandLineRunne
 	@Override
 	public void run(String... args) throws Exception {
 
+		System.out.println("===== INSERTAR =====");
+
 //		Producto producto = Producto.builder()
 //				.sku("BY1258CA")
 //				.nombre("Coche de juguete")
@@ -33,13 +35,16 @@ public class DemoSpringDataMongoProductosApplication implements CommandLineRunne
 //
 //		productoRepository.save(producto);
 
+		System.out.println("===== TOTAL PRODUCTOS =====");
 //		List<Producto> productoList = productoRepository.findAll();
 //		System.out.println(productoList);
 
+		System.out.println("===== ACTUALIZAR =====");
 		// Update
 		Producto producto = productoRepository.findById("6b07278c3cd534fe03f1e1b9").get();
 		System.out.println(producto);
 
+		System.out.println("===== BORRAR =====");
 		// Delete
 		productoRepository.deleteById("6b07278c3cd534fe03f1e1b9");
 
