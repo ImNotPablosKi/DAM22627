@@ -92,12 +92,10 @@ class AtenderCliente implements Runnable {
                     case "listar":
 
                         listarImagenes(outCliente);
-
                         break;
                     case "descargar":
 
                         enviarImagen(inCliente.readUTF(), outCliente);
-
                         break;
 
                     case "salir":
@@ -205,7 +203,7 @@ class AtenderCliente implements Runnable {
     private static boolean tieneExtensionImagen(String nombre) {
 
         String minusculas = nombre.toLowerCase();
-        return minusculas.endsWith(".jpg") || minusculas.endsWith(".png");
+        return minusculas.endsWith(".jpg") || minusculas.endsWith(".png") || minusculas.endsWith(".gif");
 
     }
 
